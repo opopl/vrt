@@ -1,0 +1,34 @@
+
+This README file will explain how to set up the latexreport for
+newcomers to LaTeX. 
+
+Unpack the report
+-----------------
+
+
+
+Process your LaTeX report
+-------------------------
+
+In order to view the DVI files the you must change directory and run
+latex.
+
+  > cd text
+  > latex master.tex
+  [output snipped]
+  > latex master.tex
+  [output snipped]
+
+You have to run latex several to times until all crossreferences have
+been solved. To view the resulting DVI file do
+
+  > xdvi master.dvi
+
+Conversion to Postscript file are made with DVI converter dvips
+
+  > dvips -o master.ps master.dvi
+
+and can also be converted to Acrobat PDF documents with
+
+  > ps2pdf master.ps master.pdf
+

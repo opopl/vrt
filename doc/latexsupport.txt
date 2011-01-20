@@ -1,0 +1,476 @@
+*latexsupport.txt*           LATEX Support                         Dec 05 2007
+
+LaTeX Support                                   *latex-support* *latexsupport*
+                          Plugin version 1.10.2
+                      for Vim version 6.0 and above
+                     Fritz Mehner  <mehner@fh-swf.de>
+
+Write and run LaTeX programs using menus.
+
+ 1.    Usage                                           |latexsupport-usage-gvim|        
+ 1.1    Menu 'Comments'                                |latexsupport-comm|
+ 1.1.1   Append aligned comments to consecutive lines  |latexsupport-comm-1|
+ 1.1.2   Code to comment                               |latexsupport-comm-2|
+ 1.1.3   Comment to code                               |latexsupport-comm-3|
+ 1.1.4   Frame comments, file header, ...              |latexsupport-comm-4|
+ 1.2    Menu 'LaTeX'                                   |latexsupport-latex|
+ 1.3    Menu 'Wizard'                                  |latexsupport-wizard|
+ 1.3.1   Menu 'Snippets'                               |latexsupport-snippets|
+ 1.4    Menu 'Run'                                     |latexsupport-run|
+ 1.4.1   Save and run                                  |latexsupport-run|
+ 1.4.2   Run bibtex                                    |latexsupport-bibtex|
+ 1.4.3   Run lacheck                                   |latexsupport-lacheck|
+ 1.4.4   Make clean                                    |latexsupport-clean|
+ 1.4.5   Settings                                      |latexsupport-settings|
+ 2.    Hotkeys                                         |latexsupport-hotkeys|           
+ 3.    Customization and configuration                 |latexsupport-custom|     
+ 3.1    Global variables                               |latexsupport-custom-1|
+ 4.    Template files and tags                         |latexsupport-templates|    
+ 4.1    Template files                                 |latexsupport-templates|    
+ 4.2    Tags                                           |latexsupport-tags|
+ 5.    Dictionaries                                    |latexsupport-dictionary|        
+ 6.    Extend taglist.vim for LaTeX                    |latexsupport-taglist|     
+ 7.    Syntax based folding                            |latexsupport-folding|     
+ 8.    Release Notes                                   |latexsupport-release-notes|     
+
+       How to add this help file to Vim's help         |add-local-help|             
+
+
+==============================================================================
+1.  USAGE WITH GUI  (gVim)                           *latexsupport-usage-gvim*
+==============================================================================
+
+If the gvim root menu entry 'LaTeX' is not visible call it with the entry 
+"Load LaTeX Support" from the standard Tools-menu.
+The entry "Load LaTeX Support" can also be used to unload the LaTeX-root menu.
+
+------------------------------------------------------------------------------
+1.1 MENU 'Comments'                                        *latexsupport-comm*
+------------------------------------------------------------------------------
+
+1.1.1 APPEND ALIGNED COMMENTS TO CONSECUTIVE LINES       *latexsupport-comm-1*
+
+In NORMAL MODE the menu entry
+ 'Line End Comm.'
+will append "<Tab><Tab><Tab>%<Space>" to the current line.
+
+In VISUAL MODE these entries will append aligned comments to all marked lines.
+Marking and commenting the first 3 lines
+
+  \lstset{stepnumber=0}
+  \lstset{framesep=2mm}
+  \lstset{linewidth=160mm}
+  \lstset{xleftmargin=6mm}
+
+yield
+
+  \lstset{stepnumber=0}     % 
+  \lstset{framesep=2mm}     % 
+  \lstset{linewidth=160mm}  % 
+  \lstset{xleftmargin=6mm}
+
+The cursor will be positioned at the end of the first line.
+
+------------------------------------------------------------------------------
+
+1.1.2 CODE TO COMMENT                                    *latexsupport-comm-2*
+
+A marked block
+
+xxxxxxxx
+xxxxxxxx
+xxxxxxxx
+
+will be changed by the menu entry 'code->comment' into a multiline comment
+(all (partially) marked lines):
+
+%xxxxxxxx
+%xxxxxxxx
+%xxxxxxxx
+
+------------------------------------------------------------------------------
+
+1.1.3 COMMENT TO CODE                                    *latexsupport-comm-3*
+
+If one or more commented lines are marked the entry 'comment->code' will 
+them.
+
+------------------------------------------------------------------------------
+
+1.1.4 FRAME COMMENTS, FILE HEADER, ...                   *latexsupport-comm-4*
+
+Frame comments and the file header comment are read as templates from the
+appropriate files (see |latexsupport-templates|).
+
+
+------------------------------------------------------------------------------
+1.2  MENU 'LaTeX'                                         *latexsupport-latex*
+------------------------------------------------------------------------------
+
+1.2.1  NORMAL MODE, INSERT MODE. 
+
+An empty statement will be inserted. The entry 'environment->\figure{}' will 
+insert an empty figure environment, change into insert mode and set the cursor
+at the beginning of the 2. line:
+
+\begin{figure}
+
+\end{figure}
+
+
+1.2.2  VISUAL MODE.
+
+Many entries will set a marked region inside the chosen construct. The
+highlighted area 
+
+xxxxx
+xxxxx
+
+will be changed to
+
+\begin{figure}
+xxxxx
+xxxxx
+\end{figure}
+
+by the entry 'environment->\figure{}' .
+
+The entry '\ref' changes the marked text 'xxxxxx' in
+  aaa xxxxxx bbbbbbbb
+to
+  aaa \ref{xxxxxx} bbbbbbbb
+
+Some entries will double the marked text.  The entry '\index' changes the
+marked text 'xxxxxx' in
+  aaa xxxxxx bbbbbbbb
+to
+  aaa xxxxxx \index{xxxxxx}  bbbbbbbb
+
+
+------------------------------------------------------------------------------
+1.3  MENU 'Wizard'                                       *latexsupport-wizard*
+------------------------------------------------------------------------------
+
+1.3.1  CODE SNIPPETS                                   *latexsupport-snippets*
+
+Code snippets are pieces of code which are kept in separate files in a special
+directory (e.g. a few lines of code or a complete template for a Makefile).
+File names are used to identify the snippets.  The snippet directory will be
+created during the installation  ($HOME/.vim/latex-support/codesnippets is the
+default).  Snippets are managed with the 3 entries 
+
+   LaTeX -> Snippets -> read  code snippet
+   LaTeX -> Snippets -> write code snippet
+   LaTeX -> Snippets -> edit  code snippet
+
+from the Snippets submenu.
+
+CREATING A NEW SNIPPET  
+When nothing is marked, "write code snippet" will write the whole buffer 
+to a snippet file, otherwise the marked area will be written to a file.
+
+INSERT A SNIPPET
+Select the appropriate file from the snippet directory ("read  code snippet").
+The inserted lines will be indented.
+
+EDIT A SNIPPET
+This is a normal edit.
+
+
+------------------------------------------------------------------------------
+1.4  MENU 'Run'                                             *latexsupport-run*
+------------------------------------------------------------------------------
+
+1.4.1  SAVE AND RUN 
+
+Save the current buffer and run it through latex. Errors and warnings will be
+shown in a quickfix error window. You can navigate using quickfix commands
+(see |quickfix|).
+
+1.4.2  RUN bibtex                                        *latexsupport-bibtex*
+
+Save the current buffer and run bibtex.
+
+1.4.3  RUN lacheck                                      *latexsupport-lacheck*
+
+Save the current buffer and run it through lacheck (consistency checker for
+LaTeX documents). Errors and warnings will be shown in a quickfix error
+window. You can navigate using quickfix commands (see |quickfix|).
+
+1.4.4  MAKE CLEAN                                         *latexsupport-clean*
+
+This will remove the files with the following extension from the current
+working directory:
+
+  aux  bbl  blg  brf  dvi  idx  ilg  ind
+  lof  log  lol  lot  out  pdf  ps   toc
+
+This list of extensions is the default. The list can be changed by setting the
+global variable  g:LATEX_Files_Clean .
+
+1.4.5  SETTINGS                                        *latexsupport-settings*
+
+Show the actual settings (global variables, plugin tags, version).
+
+==============================================================================
+2.  HOTKEYS                                             *latexsupport-hotkeys*
+==============================================================================
+
+The following hotkeys are defined in normal, visual and insert mode: 
+
+   Alt-F9   call xdvi
+  Ctrl-F9   compile with latex
+ Shift-F9   rum make
+
+The hotkeys are defined in the file type plugin  tex.vim .
+
+Some insert mode hotkeys have a backtick (`) as their laeder.
+
+  -- font style ---------------------------------------------------------
+  \tb `tb     \textbf{}                       (normal, visual, insert)
+  \tc `tc     \textsc{}                       (normal, visual, insert)
+  \tf `tf     \textsf{}                       (normal, visual, insert)
+  \ti `ti     \textit{}                       (normal, visual, insert)
+  \tl `tl     \textsl{}                       (normal, visual, insert)
+  \tn `tn     \textnormal{}                   (normal, visual, insert)
+  \tt `tt     \texttt{}                       (normal, visual, insert)
+
+  -- spacing ------------------------------------------------------------
+  \np `np     \newpage                        (normal, insert)
+  \nl `nl     \newline                        (normal, insert)
+  \vs `vs     \vspace{0mm}                    (normal, insert)
+  \hs `hs     \hspace{0mm}                    (normal, insert)
+
+  -- listings -----------------------------------------------------------
+  \li `li    \lstinline{}                     (normal, visual, insert)
+
+  -- Run ----------------------------------------------------------------
+  \rr     save buffer and run latex           (normal)
+  \rd     view DVI                            (normal)
+  \rp     view PDF                            (normal)
+  \rs     view PS                             (normal)
+  \ri     run makeindex                       (normal)
+  \rb     run bibtex                          (normal)
+  \rl     run lacheck                         (normal)
+  \rm     run make                            (normal)
+  \rc     run make clean                      (normal)
+  \re     show plugin settings                (normal)
+
+The hotkeys are defined in the file type plugin tex.vim (part of this package)
+and described in the document latex-hot-keys.pdf
+
+
+==============================================================================
+3.  CUSTOMIZATION                                        *latexsupport-custom*
+==============================================================================
+
+------------------------------------------------------------------------------
+3.1  GLOBAL VARIABLES                                  *latexsupport-custom-1*
+------------------------------------------------------------------------------
+
+Several global variables are checked by the script to customize it:
+
+  ------------------------------------------------------------------------------
+  GLOBAL VARIABLE             DEFAULT VALUE                    TAG (see below)
+  ------------------------------------------------------------------------------
+  g:LATEX_AuthorName          ""                               |AUTHOR|
+  g:LATEX_AuthorRef           ""                               |AUTHORREF|
+  g:LATEX_Email               ""                               |EMAIL|
+  g:LATEX_Company             ""                               |COMPANY|   
+  g:LATEX_Project             ""                               |PROJECT|
+  g:LATEX_CopyrightHolder     ""                               |COPYRIGHTHOLDER|
+
+  g:LATEX_Template_Directory  $HOME."/.vim/latex-support/templates/"
+  g:LATEX_File_Header         "tex-file-header"
+
+  g:LATEX_CodeSnippets        $HOME."/.vim/latex-support/codesnippets/"
+  g:LATEX_Dictionary_File     ""
+  g:LATEX_LoadMenus           "yes"
+
+  g:LATEX_File_Extension      "tex"  
+  g:LATEX_dvi_viewer          "xdvi"
+  g:LATEX_ps_viewer           "gv"
+  g:LATEX_pdf_viewer          "acroread"
+  g:LATEX_bibtex              "bibtex"
+  g:LATEX_Files_Clean         'aux bbl blg brf dvi idx ilg ind lof log lol lot out pdf ps toc'
+
+  ----------------------------------------------------------------------------
+
+1. group: Defines the text which will be inserted for the tags when a template  
+          is read in (see also |latexsupport-templates| below).
+
+          g:LATEX_AuthorName         : author name
+          g:LATEX_AuthorRef          : author reference (e.g. acronym)
+          g:LATEX_Email              : email address
+          g:LATEX_Company            : name of the company / institution
+          g:LATEX_Project            : project
+          g:LATEX_CopyrightHolder    : the copyright holder
+
+2. group: g:LATEX_Template_Directory : Sets the template directory and the names of the 
+           ...                         template files (see |latexsupport-templates|).
+
+3. group: g:LATEX_CodeSnippets       : The name of the code snippet directory 
+                                       (see |latexsupport-snippets|).
+          g:LATEX_Dictionary_File    : The name(s) of the dictionary file(s) used for 
+                                       word completion (see also |latexsupport-dictionary|)
+          g:LATEX_LoadMenus          : Load menus and mappings ("yes", "no") at startup.
+
+4. group: g:LATEX_File_Extension     : File extension for latex files (default: tex).
+          g:LATEX_dvi_viewer         : The standard dvi viewer (default: xdvi).
+          g:LATEX_ps_viewer          : The standard Postscript viewer (default: gv).
+          g:LATEX_pdf_viewer         : The standard PDF viewer (default: acroread).
+          g:LATEX_bibtex             : The BibTeX program (default: bibtex).
+          g:LATEX_Files_Clean        : List of file extensions for files to be deleted
+                                       (see |latexsupport-run|).
+          
+To override the defaults add appropriate assignments to .vimrc .
+Here are my settings as an example:
+
+  let g:LATEX_AuthorName      = "Dr.-Ing. Fritz Mehner"    
+  let g:LATEX_AuthorRef       = "Mn"                       
+  let g:LATEX_Email           = "mehner@fh-swf.de"         
+  let g:LATEX_Company         = "FH Südwestfalen, Iserlohn"
+
+
+==============================================================================
+4.  TEMPLATE FILES AND TAGS                           *latexsupport-templates*
+==============================================================================
+
+------------------------------------------------------------------------------
+4.1  TEMPLATE FILES
+------------------------------------------------------------------------------
+
+Some menu entries generate comments or commented code. Four menu entries
+generate block comments:
+
+    Frame Comm. %%
+    Frame Comm. ==
+    Frame Comm. --
+    File Prolog
+
+The file prolog is inserted from a file:
+
++--------------------------+--------------------------------------------------------+
+| menu entry               | global variable           | file (distribution set)    |
++--------------------------+---------------------------+----------------------------+
+| LaTeX-file header        | g:LATEX_File_Header       | tex-file-header            |
+|                          |                           |                            |
+| < future extensions >    |                           |                            |
++--------------------------+--------------------------------------------------------+
+
+The template files can be written or changed by the user to fulfill special
+requirements (layout for a project or work group already exists, 
+file headers / blocks have to be prepared for a documentation tool, ... ).
+They can hold not only comments but a complete file skeleton if this is 
+necessary. So you may want to lay out your own templates.
+
+
+------------------------------------------------------------------------------
+4.2  TAGS                                                  *latexsupport-tags*
+------------------------------------------------------------------------------
+
+The comments in these files do not have to be personalized but they can be.
+The text can contain the following tags which are replaced by the appropriate
+information when the file is read in:
+
+    |AUTHOR|
+    |AUTHORREF|
+    |COMPANY|
+    |COPYRIGHTHOLDER|
+    |CURSOR|
+    |DATE|
+    |EMAIL|
+    |FILENAME|
+    |PROJECT|
+    |TIME|
+    |YEAR|
+
+Each tag can occur more than once. The tag |CURSOR| may appear only once.
+The tag |CURSOR| will be the cursor position after the block is read in.
+There is no need to use any of these tags, some or all can be missing.
+The template files can actually be links pointing to existing templates.
+
+
+==============================================================================
+5.  DICTIONARY                                       *latexsupport-dictionary*
+==============================================================================
+
+The file  
+
+  wordlists/german.list
+
+is a part of this plugin and can be used (together with your own lists) as
+dictionary for automatic word completion. There is no default word list.  If
+you want to use it with an additional list MyC.list put the following lines
+into .vimrc :
+
+  let g:Latex_Dictionary_File = $HOME."/.vim/latex-support/wordlists/german.list,".
+            \                   $HOME."/.vim/latex-support/wordlists/MyC.list"
+  
+The right side is a comma separated list of files. Note the point at the end
+of the first line (string concatenation) and the backslash in front of the 
+second line (continuation line). 
+You can use Vim's dictionary feature CTRL-X, CTRL-K (and CTRL-P, CTRL-N).
+
+
+==============================================================================
+6.  EXTEND taglist.vim FOR LaTeX                        *latexsupport-taglist*     
+==============================================================================
+
+The use of the Vim plugin taglist.vim (Author: Yegappan Lakshmanan) is highly
+recommended. It uses the program ctags which generates tag files for 3 dozen 
+languages (Exuberant Ctags, Darren Hiebert, http://ctags.sourceforge.net).
+With the following extensions the structure of a LaTeX document, the entries
+and strings in a BibTeX database and the list of targets in a makefile can be
+shown in the taglist window.
+
+1) Append the file customization.ctags to the file $HOME/.ctags .  
+
+2) Add the following lines (from customization.vimrc) to $HOME/.vimrc :
+
+  "
+  "-------------------------------------------------------------------
+  " plugin taglist.vim : define the tag file entry for LaTeX
+  " plugin taglist.vim : define the tag file entry for BibTeX
+  " plugin taglist.vim : define the tag file entry for make
+  "-------------------------------------------------------------------
+   noremap <silent> <F11>  <Esc><Esc>:Tlist<CR>
+  inoremap <silent> <F11>  <Esc><Esc>:Tlist<CR>
+  
+  let tlist_bib_settings   = 'bib;a:BibTeX-Authors;e:BibTeX-Entries;t:BibTeX-Titles;s:BibTeX-Strings'
+  let tlist_make_settings  = 'make;m:makros;t:targets'
+  let tlist_tex_settings   = 'latex;s:Contents;g:Graphics;i:Listings;l:\label;r:\ref;p:\pageref;b:\bibitem'
+
+
+3) restart vim/gvim
+
+The two maps will toggle the taglist window (hotkey F11) in all editing modes.
+The two assignments define the headings for the make sections in the taglist
+window.  
+
+
+==============================================================================
+7.  SYNTAX BASED FOLDING                                *latexsupport-folding*
+==============================================================================
+
+The file latex-support/syntax/tex.vim contains the basic settings for syntax
+based folding (see also |folding|). The Vim variable foldlevel is set to 999 :
+  set foldlevel=999
+i.e. folding starts at block nesting level 999 (i.e. at first there is
+no folding at all). 
+This could be changed to an appropriate value, e.g. 5. Folding now would start
+always at level 5.
+The alternative is to keep the level 999 and start folding with the normal
+mode command 'zM' (close all folds) and then open those folds needed.
+
+To enable syntax based folding copy this file to $HOME/.vim/syntax/ .
+
+
+==============================================================================
+8.  RELEASE NOTES                                 *latexsupport-release-notes*
+==============================================================================
+
+See file README.latexsupport .
+
+==============================================================================
+vim:tw=78:noet:ts=2:ft=help:norl:

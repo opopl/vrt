@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "You do not have a valid vim binary package installed. Please install either \"vim\", \"vim-enhanced\" or \"gvim\"." >&2
+exit 1

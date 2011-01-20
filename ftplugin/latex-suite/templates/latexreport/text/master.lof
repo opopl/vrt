@@ -1,0 +1,31 @@
+\select@language {danish}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Illustration of a snake contour that converges towards on an image of a circle. On both images the grey area is the image part to extract a contour for. The left images shows initial contour and contours for every 5 iterations of the snake method for 100 iterations. The right image shows the final result (found at iteration number 50).}}{2}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Example of a topological complex image to segment. The left figure is the image to segment. The right figure is the segmented image which topological complex where the snake must adapt to three independent contours.}}{4}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Open snake curve}}}{4}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Closed snake curve}}}{4}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Closed and open snakes curves with the parameter representation $C(s)=(x(s),y(s))$}}{4}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Tension energy is proportional to stretching of the contour}}}{6}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Stretch of the contour at a node where the vectors indicate the resulting curve}}}{6}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Illustration of the tension energy}}{6}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Rigidity is proportional to the curvature of the contour}}}{6}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Contour with only tension energy applied}}}{6}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Resulting contour with applied energy rigidity}}}{6}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Illustration of rigidity energy}}{7}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Positive external energy defined to extract dark image features}}}{8}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Negative external energy defined to extract bright image features}}}{8}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Minimizing and maximizing external energy}}{8}
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Zero transition between two locations in an image that will make the snake oscilate between them \citep {cohen91}.}}{13}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces The two-dimensional search space of possible positions on a $m \times m$ sized grid, where $m$ is 3, 5, and 7.}}{14}
+\contentsline {figure}{\numberline {1.9}{\ignorespaces The decision set for the dynamic programming energy minimization method for a single point with a minimum search space $m~=~9$. The curved arrows indicate positions of a point for the contour with lower energy.}}{15}
+\contentsline {figure}{\numberline {1.10}{\ignorespaces The decision set of the search space for a snake control point using the greedy algorithm.}}{16}
+\contentsline {figure}{\numberline {1.11}{\ignorespaces The objective is to minimize the local contour curvature with geometric aspects}}{17}
+\contentsline {figure}{\numberline {1.12}{\ignorespaces Level set approach where the surface of a higher dimension is inserted into the image plane, where the intersection of the surface and the image defines the contour boundary}}{17}
+\addvspace {10\p@ }
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Top of the curve $r(s)$ and the corresponding osculating circle}}}{24}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Frenet frame with the three perpendicular frame unit vectors imposed on the curve and osculating with indication of the torsion and curvature measures}}}{24}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Explanation of the Frenet frame and its vectors and planes.}}{25}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces The Frenet frame with torsion and curvature illustrated.}}{25}

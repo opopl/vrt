@@ -1,0 +1,42 @@
+%% -*- Latex -*- 
+%% 
+%% master.tex - master work file that include all other documents
+%% 
+
+\documentclass{iesreport}
+
+%% RCS information from last CVS update
+\RCS $Revision: 1.15 $
+\RCS $Date: 2000/06/06 02:36:58 $
+
+%% \input used because of \include limitations with pagebreak 
+%% at the end of page
+\input{preamble.tex} 
+
+\begin{document}
+
+                       % *frontmatter*
+
+\include{frontmatter}  % abstract, preface, tableofcontents, list of
+                       % figures, list of tables, etc.
+
+                       % *mainmatter*
+
+\pagenumbering{arabic} % start normal numbering of pages
+
+\include{chap_1}       % example chapter
+\include{bibliography} % bibliography
+\appendix              % start of appendices
+\include{app_1}        % example appendix
+
+                       % *backmatter*
+
+\include{colophon}     % colophon of report
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% mode: reftex
+%%% TeX-master: t
+%%% End: 

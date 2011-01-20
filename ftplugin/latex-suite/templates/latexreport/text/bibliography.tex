@@ -1,0 +1,36 @@
+%% -*- Latex -*- 
+%% 
+%% bibliography.tex - 
+%% 
+%% Copyright (C) 2000 Flemming Kjær Jensen <fkj@sunsite.auc.dk>
+%% 
+%% Author          : Flemming Kjær Jensen
+%% Created On      : Tue May 16 14:58:16 2000
+%% 
+
+%% *** Warning *** remove before final report
+%%
+%% nocite{*} will include all information found in the .bib files and
+%% only cited material should go into the final report
+%%
+%\nocite{*}
+
+%% Old fashion way of inserting bibliography into table of contents,
+%% use tocbibind package instead
+%%
+\addcontentsline{toc}{chapter}{\numberline{}\bibname}
+
+%% use abbreviated authors with the natural sciences reference style
+%% (includes URL, ISBN, and ISSN).
+%%
+%% for more information run: texdoc natbib
+%%
+\bibliographystyle{abbrvnat}
+\bibliography{master} 
+
+\clearemptydoublepage
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End: 

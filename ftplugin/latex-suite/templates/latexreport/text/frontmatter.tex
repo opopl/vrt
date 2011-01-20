@@ -1,0 +1,321 @@
+%% -*- Latex -*- 
+%% 
+%% frontmatter.tex - abstract, synopsis, toc, lof, lot
+%% 
+%% Copyright (C) 2000 Flemming Kjær Jensen <fkj@sunsite.auc.dk>
+%% 
+%% $Id: frontmatter.tex,v 1.7 2000/06/06 12:15:11 fkj Exp $
+%% 
+%% Author          : Flemming Kjær Jensen
+%% Created On      : Tue May 16 12:20:17 2000
+%% 
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Front Page
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
+%\finalfrontpage\clearemptydoublepage
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Title page
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle\clearemptydoublepage
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% English Abstract
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}      %% Both the header and footer is empty
+                           %% and the page \hsize is 150mm
+                           %% with d4report.cls
+\vskip -5mm                %% move the header upwards
+%%
+%%  University, Institute, Department header
+%%
+\begin{minipage}[b]{125mm} %% header minipage aligned at top of baseline
+  \noindent
+  \sffamily
+  \bfseries
+  \normalsize
+  {\def\baselinestretch{1.1}%  %% set wanted header baseline stretch
+    AALBORG UNIVERSITY\\
+    INSTITUTE OF ELECTRONIC SYSTEMS\\
+    DEPARTMENT OF COMMUNICATION TECHNOLOGY }
+\end{minipage}
+\hfill
+%%
+%%  Logo
+%%
+\begin{minipage}[b]{25mm}  %% logo minipage aligned at the bottom of baseline
+  \centering
+  \includegraphics[width=23mm]{auclogo.eps}
+\end{minipage}
+\vskip -3mm
+\hbox{\vrule height 0.2mm width\hsize} %% vertical separator across page
+%%
+%%  Address of Aalborg University
+%%
+\begin{minipage}{\hsize}
+  \noindent
+  \ \                      %% some preindentation
+    Fredrik Bajersvej 7\ \ \rule[.5mm]{1mm}{1mm}\ \
+    DK-9220 Aalborg East
+    \hfill
+    Phone 96 35 80 80
+  \ \                      %% some postindentation
+\end{minipage}
+\vfill
+%%
+%%  Titel, Tema, Projektperiode, Projektgruppe
+%%
+\begin{minipage}[b]{\hsize}%
+  \noindent%
+  \begin{tabular}{ll}%
+    \textsc{Title:}          & Surface Modeling of the Cerebral Vasculature\\
+    \textsc{Theme:}          & Computer Vision\\
+    \textsc{Project period:} & 10th Semester, February 2000 to June 2000\\
+    \textsc{Project group:}  & 1020\\    
+  \end{tabular}
+\end{minipage}
+\vfill
+%%
+%%  Deltagere (gruppemedlemmer), Vejledere (Hoved-, TS-, bi-)
+%%
+\begin{minipage}{60mm}
+  \noindent
+  \begin{tabular}{l}
+  \textsc{Participant:}\\
+    Flemming Kjær Jensen\\[5mm]
+  \textsc{Supervisors:}\\  
+    Flemming Kjær Jensen\\
+  \end{tabular}
+\end{minipage}
+\hfill
+%%
+%%  Dansk synopsis eller engelsk abstract
+%%
+\fbox{\parbox[b]{85mm}{
+\noindent
+{\sffamily\bfseries\large\begin{center}Abstract\end{center}}
+%%
+%%  Her indsættes abstract
+%%
+{\small%
+  Here the abstract should be inserted
+}
+%%
+%%  Afslutning på abstract
+%%
+}}
+\vfill
+%%
+%%  Rapport information
+%%
+\begin{minipage}{\hsize}
+  \noindent
+  \begin{tabular}{ll}
+    \textsc{Publications:}    & 8                    \\
+    \textsc{Number of pages:} & \pageref{LastPage}   \\
+    \textsc{Finished:}        & 6th of June 2000  \\
+  \end{tabular}
+\end{minipage}
+\vfill
+%%
+%%  Copyright information
+
+\begin{center}
+  \noindent
+  \footnotesize This report must not be published or reproduced
+  without permission from the project group\\  Copyright \copyright\/
+  2000, project group 1020, Aalborg University
+\end{center}
+\vfill
+\clearemptydoublepage
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Danish Synopsis
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}      %% Both the header and footer is empty
+                           %% and the page \hsize is 150mm
+                           %% with d4report.cls
+
+%%
+%%  Dansk synopsis
+%%
+\selectlanguage{danish}    %% correct language
+\vskip -5mm                %% move the header upwards
+%%
+%%  University, Institute, Department header
+%%
+\begin{minipage}[b]{125mm} %% header minipage aligned at top of baseline
+  \noindent
+  \sffamily
+  \bfseries
+  \normalsize
+  {\def\baselinestretch{1.1}%  %% set wanted header baseline stretch
+    AALBORG UNIVERSITET\\
+    INSTITUT FOR ELEKTRONISKE SYSTEMER\\
+    AFDELING FOR KOMMUNIKATIONSTEKNOLOGI }
+\end{minipage}
+\hfill
+%%
+%%  Logo
+%%
+\begin{minipage}[b]{25mm}  %% logo minipage aligned at the bottom of baseline
+  \centering
+  \includegraphics[width=23mm]{auclogo.eps}
+\end{minipage}
+\vskip -3mm
+\hbox{\vrule height 0.2mm width\hsize} %% vertical separator across page
+%%
+%%  Address of Aalborg University
+%%
+\begin{minipage}{\hsize}
+  \noindent
+  \ \                      %% some preindentation
+    Fredrik Bajersvej 7\ \ \rule[.5mm]{1mm}{1mm}\ \
+    DK-9220 Aalborg Øst
+    \hfill
+    Telefon 96 35 80 80
+  \ \                      %% some postindentation
+\end{minipage}
+\vfill
+%%
+%%  Titel, Tema, Projektperiode, Projektgruppe
+%%
+\begin{minipage}[b]{\hsize}%
+  \noindent%
+  \begin{tabular}{ll}%
+    \textsc{Titel:}          & Overflade-modellering af hjernens blodkar \\
+    \textsc{Tema:}           & Computer vision\\
+    \textsc{Projektperiode:} & 10. semester, februar 2000 til juni 2000\\
+    \textsc{Projektgruppe:}  & 1020\\    
+  \end{tabular}
+\end{minipage}
+\vfill
+%%
+%%  Deltagere (gruppemedlemmer), Vejledere (Hoved-, TS-, bi-)
+%%
+\begin{minipage}{60mm}
+  \noindent
+  \begin{tabular}{l}
+  \textsc{Deltager:}\\
+    Flemming Kjær Jensen\\[5mm]
+  \textsc{Vejledere:}\\
+    Flemming Kjær Jensen\\
+  \end{tabular}
+\end{minipage}
+\hfill
+%%
+%%  Dansk synopsis eller engelsk abstract
+%%
+\fbox{\parbox[b]{85mm}{
+\noindent
+{\sffamily\bfseries\large\begin{center}Synopsis\end{center}}
+%%
+%%  Her indsættes synopsis
+%%
+{\small%
+  Her indsættes synopsis
+}
+%%
+%%  Afslutning på synopsis
+%%
+}}
+\vfill
+%%
+%%  Rapport information
+%%
+\begin{minipage}{\hsize}
+  \noindent
+  \begin{tabular}{ll}
+    \textsc{Oplagstal:} & 8                  \\
+    \textsc{Sideantal:} & \pageref{LastPage} \\
+    \textsc{Afsluttet:} & 6. juni 2000     \\
+  \end{tabular}
+\end{minipage}
+\vfill
+%%
+%%  Copyright information
+
+\begin{center}
+  \noindent
+  \footnotesize Denne rapport må ikke offentliggøres eller gengives
+  uden tilladelse fra projektgruppen\\ Copyright \copyright\/ 2000,
+  projektgruppe 1020, Aalborg Universitet
+\end{center}
+\vfill
+\selectlanguage{english}    %% correct language
+\clearemptydoublepage
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Preface
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagenumbering{roman}
+
+\chapter*{Preface}
+
+This report is written during the project period of the 10th semester
+at the Department of Communication Technology, Institute of Electronic
+Systems, Aalborg University.
+
+% personlig motivation (kun noget godt)
+%
+% I gratefully acknowledge all the people who played a part in the
+% creation of this report
+
+
+
+\section*{Report Structure}
+
+Format of chapters, sections, equations, citations (harvardstyle),
+appendices, etc. It should be stated here.
+
+\section*{Acknowledgements}
+
+Hellos go to the people that have helped with providing information,
+resources, and other materials for the project.
+
+
+{\vfill
+
+Aalborg University, 6th of June 2000
+
+\bigskip\bigskip\bigskip
+
+\includegraphics{signature-fkj.eps}}
+\clearemptydoublepage
+
+{\setlength{\parskip}{.05\baselineskip plus .2%
+    \baselineskip minus .1\baselineskip}% redefine parskip to include
+                                        % more lines on page with less
+                                        % parskips 
+{\renewcommand{\baselinestretch}{1.0} % set baselinestretch around
+                                      % contents tables to minimize
+                                      % the space between lines
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Table of Contents
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \tableofcontents
+  \clearemptydoublepage
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% List of Figures
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \listoffigures
+  \clearemptydoublepage
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% List of Tables
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \listoftables
+  \clearemptydoublepage}
+
+\renewcommand{\baselinestretch}{1.225}} % reset baselinestretch
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% mode: reftex
+%%% mode: flyspell
+%%% TeX-master: "master"
+%%% End: 

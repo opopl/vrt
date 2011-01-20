@@ -1,0 +1,105 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 162 146
+%!
+% (c) Sten Baek Sorensen (sbs) feb. 1989.
+% 
+% Modified by Hans Mejdahl Jeppesen, Lucifer-Data (c) oct. 1990.
+%
+% This operation (auclogo) draws the AUC logo ("ad nye veje") with the
+% bottom left corner starting at 'x','y'. And 'auclogo' use 'gray' 
+% and fills the logo with the corresponding  graycolour, 0 to 1 (black to
+%  white) . If the number is -1 it produces an outlined logo.
+% scale = 1.0 is  6.0 X 5.0 cm AUC logo.
+% A sample demo program is included in this file.
+
+/auclogo {                          % gray scale x y    auclogo   --
+    gsave 
+        translate 
+        0 0 moveto
+        dup scale
+
+        5 6 8 11 10 16 rcurveto
+        1 2 2 4 2 6 rcurveto
+        1 3 1 7 1 11 rcurveto
+        0 5 -1 11 -2 18 rcurveto
+        -1 5 -1 8 -1 13 rcurveto
+        0 5 0 8 1 11 rcurveto
+        1 3 2 6 3 9 rcurveto
+        2 3 4 6 7 9 rcurveto
+        3 3 7 6 11 8 rcurveto
+        4 2 9 4 15 5 rcurveto
+        4 1 9 1 14 2 rcurveto
+        4 1 7 3 11 6 rcurveto
+        3 3 6 7 11 12 rcurveto
+        3 3 7 6 12 10 rcurveto
+        4 2 9 4 15 6 rcurveto
+        4 1 9 2 13 3 rcurveto
+        3 1 6 1 10 1 rcurveto
+
+        -4 -1 -7 -2 -11 -4 rcurveto
+        -3 -1 -7 -3 -12 -5 rcurveto
+        -4 -2 -9 -7 -13 -11 rcurveto
+        -4 -4 -8 -9 -12 -14 rcurveto
+        -3 -5 -6 -8 -9 -11 rcurveto
+        -3 -3 -6 -6 -10 -8 rcurveto
+        -4 -3 -8 -5 -12 -9 rcurveto
+        -4 -4 -8 -8 -11 -13 rcurveto
+        -2 -5 -2 -9 -3 -14 rcurveto
+        0 -4 2 -9 4 -13 rcurveto
+        2 -4  5 -9 7  -14 rcurveto
+        2 -4 3 -8 4 -12 rcurveto
+        0 -3 0 -7 -1 -11 rcurveto
+        -1 -3 -2 -6 -3 -7 rcurveto
+        -51 0 rlineto closepath
+
+        61 0 rmoveto 
+
+        1 6 2 11 2 16 rcurveto
+        -1 5 -3 10 -4 15 rcurveto
+        -3 5 -6 10 -9 15 rcurveto
+        -1 3 -3 8 -3 13 rcurveto
+        0 5 1 9 3 14 rcurveto
+        6 7 14 13 24 20 rcurveto
+        7 7 12 13 20 26 rcurveto
+        5 6 10 11 16 15 rcurveto
+        8 5 16 8 29 12 rcurveto
+
+        -11 -6 -19 -13 -27 -23 rcurveto
+        -5 -8 -8 -17 -11 -24 rcurveto
+        -4 -9 -10 -17 -16 -26 rcurveto
+        -4 -7 -5 -12 -3 -18 rcurveto
+        3 -6 8 -12 19 -23 rcurveto
+        5 -6 7 -11 8 -16 rcurveto
+        0 -6 -1 -10 -4 -16 rcurveto
+        -44 0 rlineto closepath 
+
+        55 18 rmoveto 
+
+        0 3 -2 8 -5 13 rcurveto
+        -5 6 -13 12 -20 18 rcurveto
+        -4 5 -6 10 -6 15 rcurveto
+        0 3 3 8 15 25 rcurveto
+        2 4 5 10 8 19 rcurveto
+        2 5 6 13 12 21 rcurveto
+        5 6 14 12 22 16 rcurveto
+
+        -7 -6 -13 -14 -17 -25 rcurveto
+        -1 -7 -1 -24 -3 -32 rcurveto
+        -4 -9 -6 -17 -4 -23 rcurveto
+        3 -4 11 -7 22 -8 rcurveto
+        5 -1 12 -5 19 -12 rcurveto
+        4 -6 3 -17 0 -27 rcurveto
+        -43 0 rlineto closepath
+
+        -116 -18 rmoveto 
+        dup -1 eq
+        { 0 setgray stroke } if
+        setgray fill
+        grestore
+} def
+
+% Demo prog
+newpath
+
+% gray scale x y    auclogo
+0 1 0 0 auclogo

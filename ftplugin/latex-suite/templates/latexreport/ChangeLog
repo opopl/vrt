@@ -1,0 +1,8 @@
+2001-03-10  Flemming Kjaer Jensen  <fkj@kom.auc.dk>
+
+	* removed unwanted material from text/ directory and made it run
+	with the local /afs/ies.auc.dk/sw/pack/tetex-1.0.7 package
+
+	* added TODO list but no items yet
+
+	* basic text/ directory setup for the latexreport example

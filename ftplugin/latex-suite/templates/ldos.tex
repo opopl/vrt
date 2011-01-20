@@ -1,0 +1,111 @@
+\documentclass[twocolumn,aps,floatfix,preprintnumbers,showpacs,amsfonts,amssymb,prb,superscriptaddress,showkeys]{revtex4}
+\usepackage{graphicx,epsf}
+\usepackage[T1]{fontenc}
+\usepackage{multirow}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{revsymb}
+\usepackage{amssymb}
+%\usepackage{subfig}
+\usepackage{bm}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+
+\usepackage{amscd}
+\usepackage{bm}
+
+%\usepackage{babel}
+\makeatother
+
+\input{newcommands.tex}
+
+
+\begin{document}
+
+\title
+\author{<++>}
+\email[E-mail\ address:\ ]{<++>}
+\affiliation{<++>}
+
+\date{\today{}}
+
+\begin{abstract}
+\pacs{73.43.-f,\ 73.20.Qt,\ 73.21.-b,\ 68.37.-d}
+\keywords{Wigner crystal;\ electron-bubble crystal;\ high magnetic field;\ local density of states;\ scanning tunneling spectroscopy}
+
+\maketitle
+
+\section{Conclusions}
+\label{sec.concl.}
+The aim of this work is to show how a high-field electron-solid phase in the 2DEG may be detected by optical means in graphene.
+We have calculated the DOS and the LDOS of electron-solid phases in the Hartree-Fock approximation in the $N=2$ LL.
+\newline\indent We show that the number of low-energy DOS peaks in SU(2)-graphene is given by the number of electrons per site $\Me$. 
+This result is similar to the previous DOS calculation in the Hartree-Fock approximation for GaAs,\cite{cote.bubbles}\ and might
+be checked in a double-well tunneling or photoluminescence experiment.
+\newline\indent We found that the rescaled LDOS is identical  for different filling factors $\pnu$, as long as the ratio $\pnu/\Me$ is kept fixed, and the LDOS frequency is taken at the DOS peak with the same index (for the first five indices). In particular, this result yields an amazing conclusion that, e.g. by fixing the filling factor $\pnu=0.14$ in the $N=2$ LL,\ and using STM, one could observe in the LDOS the whole succession of electron-crystal density patterns with $\Me=1,\ 2,\ 3$ by fixing the applied STM voltage at the consecutive first three single-particle excitation energies, and summing up the LDOS to obtain the resummed LDOS $\tilde{A}(\rr,\omega)$.
+\newline\indent We believe that this LDOS correspondence holds true for all single-particle excitations resolved as individual DOS peaks so far ( accounting for interchanging of the last two peaks in the $\Me=2,3$ cases), for all LL's (similar conclusions follow from our calculations in the LLs $N=1,\ 3,\ 4$). We calculated LDOS, and observed the same LDOS correspondence also for other models of the 2DEG: (i) in a single-layer GaAs heterostructure; (ii) U(1)-graphene; (iii) bilayer. This implies that the observed LDOS $\pnu/\Me$ scaling is independent of the underlying interaction potential and the number of inner discrete degrees of freedom. 
+
+\begin{acknowledgements}
+\noindent We thank P.\ Lederer for fruitful discussions.
+O.\ P.\ acknowledges financial support from the European Commission through the Marie-Curie Foundation contract MEST CT 2004-51-4307, 
+and from the Gates Cambridge Scholarship Trust. The work of C.M.S. was partially supported by the Netherlands Organization for Scientific Research (NWO). 
+\end{acknowledgements}
+
+\begin{thebibliography}{00}
+\bibitem{wigner} \authline{E.\ P.\ Wigner},\ \journ{\jpr}{1002}{46}{1934}.
+\bibitem{cooper} K.\ B.\ Cooper et al.,\journ{\jprb}{60}{R11285}{1999}. 
+% \bibitem{grimes.adams}C.\ C.\ Grimes\ and\ G.\ Adams,\ \jprl\ \textbf{42},\ 795\ (1979). 
+% \bibitem{crandall.williams}\ R.\ S.\ Crandall and\ R.\ Williams,\ Phys.\ Lett.\ A\ \textbf{34},\ 404\ (1971). 
+\bibitem{yoshioka.fukuyama}D.\ Yoshioka and H.\ Fukuyama, J.\ Phys.\ Soc.\ Japan\ \textbf{47}, 394 (1979).
+\bibitem{yoshioka.lee}D.\ Yoshioka and P.\ A.\ Lee,\ \journ{\jprb}{27}{4986}{1983}.
+\bibitem{fogler} A.\ A.\ Koulakov,\ M.\ Fogler,\ and B.\ I.\ Shklovskii, \journ{\jprl}{76}{499}{1996};\ M.\ M.\ Fogler, A.\ A.\ Koulakov,\ and B.\ I.\ Shklovskii, \journ{\jprb}{54}{1853}{1996};\ R.\ Moessner and J.\ T.\ Chalker, \journ{\jprb}{54}{5006}{1996}.
+\bibitem{morais} M.\ O.\ Goerbig,\ P.\ Lederer,\ and C.\ Morais Smith,\ \journ{\jprb}{68}{241302(R)}{2003}.
+\bibitem{cote.bubbles}\authcote\ et al.,\ \journ{\jprb}{68}{155327}{2004}.
+\bibitem{fogler.QHLC}M.\ M.\ Fogler, arXiv:cond-mat/0111001.
+\bibitem{fertig.WC} H.\ A.\  Fertig, "Properties of the Electron Solid", in "Perspectives in Quantum Hall Effects", eds. S. Das Sarma and A. Pinczuk, (Wiley, New York, 1997).
+\bibitem{chen.LLLWC} Yong\ P.\ Chen et al.,\ \journ{\jprl}{93}{206805}{2004}.
+\bibitem{chen.melting} Yong\ P.\ Chen et al., \journ{Nature Physics\ }{2}{452}{2006}.
+\bibitem{fischer.STM}\O.\ Fischer et al.,\ \journ{\jrmp}{79}{353}{2007}.
+\bibitem{novoselov} K.\ S.\ Novoselov et al.,\ Nature (London)\ \textbf{438},\ 197\ (2005).
+\bibitem{geim.novoselov}A.\ K.\ Geim and K.\ S.\ Novoselov,\ \journ{Nature Materials\ }{6}{183}{2007}.
+\bibitem{zhang.joglekar}C.-H.\ Zhang and Yogesh\ N.\ Joglekar, \jprb\ \textbf{75},\ 245414\ (2007).
+\bibitem{zhang.joglekar.LLM}C.-H.\ Zhang and Yogesh\ N.\ Joglekar,\ \jprb\ \textbf{77}, 205426\ (2008).
+\bibitem{jianhui.wang}Jianhui\ Wang et al.,\ \jprb\ \textbf{78}, 165416 (2008). 
+\bibitem{hao.wang}H.\ Wang et al.,\ \jprl\ \textbf{100},\ 116802\ (2008).
+\bibitem{cote.skyrme.wc.graphene}\authcote\ et al.,\ \jprb\ \textbf{78},\ 085309 (2008).
+\bibitem{no.wc.graphene}\ H.\ P.\ Dahal,\ Y.\ N.\ Joglekar,\ K.\ S.\ Bedell,\ and\ A.\ V.\ Balatsky,\ \jprb\ \textbf{74},\ 233405 (2006).
+\bibitem{cote.macdonald}\authcote\ and\ A.\ H.\ MacDonald,\ \jprl\ \textbf{65}, 2662 (1990);\ \jprb\ \textbf{44}, 8759 (1991).
+\bibitem{cote.brey.macdonald}\authcote,\ L.\ Brey,\ and A.\ H.\ MacDonald,\ \jprl\ \textbf{46}, 10239 (1992).
+% \bibitem{chen.quinn}X.\ M.\ Chen\ and\ J.\ J.\ Quinn,\ \jprb\ \textbf{45},\ 11054\ (1992). 
+%\bibitem{lilly} M.\ P.\ Lilly,\ K.\ B.\ Cooper, J.\ P.\ Eisenstein,\ L.\ N.\ Pfeiffer,\ and\ K.\ W.\ West, \jprl\textbf{82},\ 394 (1999).
+%\bibitem{du}R.\ R.\ Du,\ D.\ C.\ Tsui,\ H.\ L.\ Stormer,\ L.\ N.\ Pfeiffer,\ K.\ W.\ Baldwin,\ and K.\ W.\ West,\ Solid\ State\ Commun.\ \textbf{109},\ 389 (1999).
+\bibitem{nomura.macdonald}K.\ Nomura and A.\ H.\ MacDonald,\ \jprl\ \textbf{96},\ 256602\ (2006).
+\bibitem{goerbig.interactions.graphene}M.\ O.\ Goerbig et al., \jprb\ \textbf{74}, 161407(R) (2006).
+%\bibitem{yoshioka} D.\ Yoshioka and H.\ Fukuyama, J.\ Phys.\ Soc.\ Japan \textbf{47}, 394 (1979).
+\bibitem{mahan} G.\ D.\ Mahan, Many-particle physics, Indiana Univ. (1980).
+\bibitem{MC} \authcote\ and A.\ H.\ MacDonald, \journ{\jprb}{44}{8759}{1991}.
+
+
+
+% \bibitem{label}
+% Text of bibliographic item
+
+% notes:
+% \bibitem{label} \note
+
+% subbibitems:
+% \begin{subbibitems}{label}
+% \bibitem{label1}
+% \bibitem{label2}
+% If there is a note, it should come last:
+% \bibitem{label3} \note
+% \end{subbibitems}
+\end{thebibliography}
+
+\end{document}
+
