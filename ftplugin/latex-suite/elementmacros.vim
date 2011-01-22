@@ -6,7 +6,8 @@
 "  Description: macros for dimensions/fonts/counters.
 "               and various common commands such ref/label/footnote.
 "=============================================================================
-
+"{{{
+"
 nmap <silent> <script> <plug> i
 imap <silent> <script> <C-o><plug> <Nop>
 
@@ -28,8 +29,9 @@ let s:dimensionMenuLoc  = g:Tex_ElementsMenuLocation.'Dimension.'
 let s:counterMenuLoc    = g:Tex_ElementsMenuLocation.'Counters.'
 let s:variousMenuLoc    = g:Tex_ElementsMenuLocation.'Various.'
 
+"}}}
 " ==============================================================================
-" Set up the functions the first time.
+" Set up the functions the first time. {{{
 " ============================================================================== 
 if !exists('s:definedFuncs') " {{{
 	let s:definedFuncs = 1
@@ -103,9 +105,9 @@ if !exists('s:definedFuncs') " {{{
 
 endif
 " }}}
-
+" }}}
 " ==============================================================================
-" Fonts
+" Fonts {{{
 " ============================================================================== 
 " series/family/shape {{{
 call <SID>Tex_FontFamily("FBF","series")
@@ -164,9 +166,9 @@ if g:Tex_Menus && g:Tex_FontMenus
 	call s:Tex_Fontfont('selectfont',                   '\selectfont ')
 	" }}}
 endif
-
+" }}}
 " ==============================================================================
-" Dimensions
+" Dimensions {{{
 " ============================================================================== 
 if g:Tex_Menus
 	" {{{ Static1
@@ -241,9 +243,9 @@ if g:Tex_Menus
 	call <SID>Tex_DimMenus('Change', 'settolength')
 	" }}}
 endif
-
+"}}}
 " ==============================================================================
-" Counters
+" Counters {{{
 " ============================================================================== 
 if g:Tex_Menus
 	" Counters {{{
@@ -304,9 +306,9 @@ if g:Tex_Menus
 	call <SID>Tex_CounterMenus('Type', 'Roman')
 	" }}}
 endif
-
+"}}}
 " ==============================================================================
-" Various
+" Various {{{
 " ============================================================================== 
 if g:Tex_Menus
 	" Various {{{
@@ -326,5 +328,5 @@ if g:Tex_CatchVisMapErrors
 endif
 " this is for avoiding reinclusion of imaps from next time on.
 let s:doneOnce = 1
-
+" }}}
 " vim:fdm=marker:ff=unix:noet:ts=4:sw=4

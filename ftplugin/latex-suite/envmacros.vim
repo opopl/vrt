@@ -30,7 +30,6 @@ let s:tabular = "\\begin{tabular}[<+hbtp+>]{<+format+>}\<cr><++>\<cr>\\end{tabul
 let s:tabular_star = "\\begin{tabular*}[<+hbtp+>]{<+format+>}\<cr><++>\<cr>\\end{tabular*}"
 
 " }}}
-"
 " define environments with special behavior in line wise selection. {{{
 if !exists('s:vis_center_left')
 	let s:vis_center_left = '\centerline{'
@@ -156,7 +155,6 @@ function! <SID>Tex_SectionMacros(lhs, name)
 		exe 'vnoremenu '.location." ".vrhs
 	endif
 endfunction " }}}
-
 " NewEnvironments {{{
 call s:Tex_SpecialMacros('', '', 'newenvironment',     '\newenvironment{<++>}[<++>][<++>]{<++>}{<++>}<++>', 0)
 call s:Tex_SpecialMacros('', '', 'newenvironment*',    '\newenvironment*{<++>}[<++>][<++>]{<++>}{<++>}<++>', 0)
@@ -255,7 +253,6 @@ call s:Tex_SectionMacros('SS2', 'subsubsection')
 call s:Tex_SectionMacros('SPG', 'paragraph')
 call s:Tex_SectionMacros('SSP', 'subparagraph')
 " }}}
-"
 " Miscellaneous {{{
 call s:Tex_SpecialMacros('', '', '-sepenv1-', ' :', 0)
 call s:Tex_SpecialMacros('EFI', '', 'figure', "\<C-r>=Tex_PutEnvironment('figure')\<CR>")
