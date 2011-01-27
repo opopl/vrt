@@ -1,18 +1,25 @@
-<+	+>	!comp!	!exe!
-%        File: !comp!expand("%")!comp!
-%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
-% Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
-%
 
-\documentclass[a4paper]{report}
-\usepackage{graphicx,amssymb,amstext,amsmath}
-\usepackage{hyperref}
+\documentclass[12pt,a4paper,dvips]{report}
+\usepackage{chemstyle}
+\usepackage{fancybox}
+\usepackage{graphicx,amssymb,amstext,amsmath,amsfonts}
+\usepackage[dvips,letterpaper,linktocpage]{hyperref}
+\usepackage{color}
 
-\title{}
-\author{}
+\sloppy
+\def\baselinestretch{1}
+\setcounter{page}{1}
+\input{nc}
 
 \begin{document}
 
-\maketitle
+\input{neq}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\bibliographystyle{thesis}
+\bibliography{repdoc}
 
 \end{document}
