@@ -218,6 +218,7 @@ call s:Tex_EnvMacros('EDM', '&Math.', 'displaymath')
 call s:Tex_EnvMacros('EEA', '&Math.', 'eqnarray')
 call s:Tex_EnvMacros('',    '&Math.', 'eqnarray*')
 call s:Tex_EnvMacros('EEQ', '&Math.', 'equation')
+call s:Tex_EnvMacros('EAL', '&Math.', 'align')
 call s:Tex_EnvMacros('EMA', '&Math.', 'math')
 " }}}
 " Structure {{{

@@ -1,4 +1,4 @@
-*vcscommand.txt*	vcscommand
+*vcscommand.txt*	vcscommand {{{
 Copyright (c) Bob Hiestand
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,9 +25,9 @@ inside Vim.
 
 Author:  Bob Hiestand <bob.hiestand@gmail.com>
 Credits:  Benji Fisher's excellent MatchIt documentation
-
+}}}
 ==============================================================================
-1. Contents						*vcscommand-contents*
+1. Contents						*vcscommand-contents* {{{
 
 	Installation		: |vcscommand-install|
 	vcscommand Intro	: |vcscommand|
@@ -36,10 +36,9 @@ Credits:  Benji Fisher's excellent MatchIt documentation
 	SSH "integration"	: |vcscommand-ssh|
 	Changes from cvscommand	: |cvscommand-changes|
 	Bugs			: |vcscommand-bugs|
-
+}}}
 ==============================================================================
-
-2. vcscommand Installation				*vcscommand-install*
+2. vcscommand Installation				*vcscommand-install* {{{
 
 The vcscommand plugin comprises five files: vcscommand.vim, vcssvn.vim,
 vcscvs.vim, vcssvk.vim and vcscommand.txt (this file).  In order to install
@@ -56,9 +55,9 @@ vcscommand may be customized by setting variables, creating maps, and
 specifying event handlers.  Please see |vcscommand-customize| for more
 details.
 
+}}}
 ==============================================================================
-
-3. vcscommand Intro					*vcscommand*
+3. vcscommand Intro					*vcscommand* {{{
 							*vcscommand-intro*
 
 The vcscommand plugin provides global ex commands for manipulating
@@ -90,11 +89,11 @@ fashion for plugin mappings.  For examples, please see
 The vcscommand plugin may be configured in several ways.  For more details,
 please see |vcscommand-customize|.
 
+}}}
 ==============================================================================
+4. vcscommand Manual					*vcscommand-manual* {{{
 
-4. vcscommand Manual					*vcscommand-manual*
-
-4.1 vcscommand commands					*vcscommand-commands*
+4.1 vcscommand commands					*vcscommand-commands* {{{
 
 vcscommand defines the following commands:
 
@@ -323,8 +322,8 @@ This command is an alias for ":CVSWatch remove"
 :CVSWatchers						*:CVSWatchers*
 
 This command performs "cvs watchers" on the current file.
-
-4.2 Mappings						*vcscommand-mappings*
+}}}
+4.2 Mappings						*vcscommand-mappings* {{{
 
 By default, a mapping is defined for each command.  These mappings execute the
 default (no-argument) form of each command.
@@ -378,8 +377,8 @@ Second, the default map prefix ('<Leader>c') can be overridden by defining the
 Third, the entire set of default maps can be overridden by defining the
 |VCSCommandMappings| variable.
 
-
-4.3 Automatic buffer variables			*vcscommand-buffer-variables*
+}}}
+4.3 Automatic buffer variables			*vcscommand-buffer-variables* {{{
 
 Several buffer variables are defined in each vcscommand result buffer.	These
 may be useful for additional customization in callbacks defined in the event
@@ -404,9 +403,10 @@ b:VCSCommandVCSType				*b:VCSCommandVCSType*
 
 This variable is set to the type of the source control.  This variable is also
 set on the original file itself.
+}}}
+}}}
 ==============================================================================
-
-5. Configuration and customization			*vcscommand-customize*
+5. Configuration and customization			*vcscommand-customize* {{{
 							*vcscommand-config*
 
 The vcscommand plugin can be configured in several ways:  by setting
@@ -415,14 +415,14 @@ event handlers (see |vcscommand-events|).  Additionally, the vcscommand plugin
 supports a customized status line (see |vcscommand-statusline| and
 |vcscommand-buffer-management|).
 
-5.1 vcscommand configuration variables			*vcscommand-options*
+5.1 vcscommand configuration variables			*vcscommand-options* {{{
 
 Several variables affect the plugin's behavior.  These variables are checked
 at time of execution, and may be defined at the window, buffer, or global
 level and are checked in that order of precedence.
 
 
-The following variables are available:
+The following variables are available: {{{
 
 |VCSCommandCommitOnWrite|
 |VCSCommandCVSDiffOpt|
@@ -447,6 +447,8 @@ The following variables are available:
 |VCSCommandSVNDiffOpt|
 |VCSCommandSVNExec|
 |VCSCommandVCSTypeOverride|
+
+}}
 
 VCSCommandCommitOnWrite				*VCSCommandCommitOnWrite*
 
@@ -593,7 +595,8 @@ element is a regular expression that will be matched against the full file
 name of a given buffer.  If it matches, the second element will be used as the
 VCS type.
 
-5.2 VCSCommand events				*vcscommand-events*
+}}}
+5.2 VCSCommand events				*vcscommand-events* {{{
 
 For additional customization, vcscommand can trigger user-defined events.
 Event handlers are provided by defining User event autocommands (see
@@ -641,8 +644,8 @@ VCSLoadExtensions		This event is fired just before the
                                 implementation plugins that needs to be
                                 deferred until the primary plugin is
                                 initialized.
-
-5.3 vcscommand buffer naming				*vcscommand-naming*
+}}}
+5.3 vcscommand buffer naming				*vcscommand-naming* {{{
 
 vcscommand result buffers use the following naming convention:
 [{VCS type} {VCS command} {Source file name}]
@@ -651,8 +654,8 @@ If additional buffers are created that would otherwise conflict, a
 distinguishing number is added:
 
 [{VCS type} {VCS command} {Source file name}] (1,2, etc)
-
-5.4 vcscommand status line support			*vcscommand-statusline*
+}}}
+5.4 vcscommand status line support			*vcscommand-statusline* {{{
 
 It is intended that the user will customize the |'statusline'| option to
 include vcscommand result buffer attributes.  A sample function that may be
@@ -668,7 +671,8 @@ The sample VCSCommandGetStatusLine() function handles both vcscommand result
 buffers and VCS-managed files if vcscommand buffer management is enabled
 (please see |vcscommand-buffer-management|).
 
-5.5 vcscommand buffer management		*vcscommand-buffer-management*
+}}}
+5.5 vcscommand buffer management		*vcscommand-buffer-management* {{{
 
 The vcscommand plugin can operate in buffer management mode, which means that
 it attempts to set a buffer variable ('VCSCommandBufferInfo') upon entry into
@@ -686,10 +690,11 @@ The 'VCSCommandBufferInfo' variable is a list which contains, in order, the
 revision of the current file, the latest revision of the file in the
 repository, and (for CVS) the name of the branch.  If those values cannot be
 determined, the list is a single element:  'Unknown'.
-
+}}}
+}}}
+}}}
 ==============================================================================
-
-6. SSH "integration"					*vcscommand-ssh*
+6. SSH "integration"					*vcscommand-ssh* {{{
 
 The following instructions are intended for use in integrating the
 vcscommand.vim plugin with an SSH-based CVS environment.
@@ -702,7 +707,7 @@ comfortable using certificate-based authentication, then only instructions
 6.1.1 and 6.1.2 (and optionally 6.1.4) need to be followed; ssh should then
 work transparently.
 
-6.1 Environment settings				*vcscommand-ssh-env*
+6.1 Environment settings				*vcscommand-ssh-env* {{{
 
 6.1.1 CVSROOT should be set to something like:
 
@@ -725,6 +730,7 @@ work transparently.
 6.1.4 OPTIONAL.  You may need to set SSH_SERVER to the location of the cvs
 	executable on the remote (server) machine.
 
+}}}
 6.2 CVS wrapper program				*vcscommand-ssh-wrapper*
 
 Now you need to convince SSH to use the password-dialog program.  This means
@@ -774,9 +780,9 @@ It is highly recommended for ease-of-use that certificates with no passphrase
 or ssh-agent are employed so that the user is not given the password prompt
 too often.
 
+}}}
 ==============================================================================
-
-7. Changes from cvscommand				*cvscommand-changes*
+7. Changes from cvscommand				*cvscommand-changes* {{{
 
 1.  Require Vim 7 in order to leverage several convenient features; also
 because I wanted to play with Vim 7.
@@ -815,9 +821,9 @@ supported by this plugin.
 'b:VCSCommandSourceFile'
 'b:VCSCommandVCSType'
 
+}}}
 ==============================================================================
-
-8. Known bugs						*vcscommand-bugs*
+8. Known bugs						*vcscommand-bugs* {{{
 
 Please let me know if you run across any.
 
@@ -832,4 +838,5 @@ buffers, uses some hacks to try to restore the state of the original buffer
 when the scratch buffer containing the other version is destroyed.  There may
 still be bugs in here, depending on many configuration details.
 
+}}
 vim:tw=78:ts=8:ft=help

@@ -2,6 +2,7 @@
 "
 " Vim plugin to assist in working with files under control of various Version
 " Control Systems, such as CVS, SVN, SVK, and git.
+" {{{
 "
 " Maintainer:    Bob Hiestand <bob.hiestand@gmail.com>
 " License:
@@ -24,6 +25,8 @@
 " LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 " FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 " IN THE SOFTWARE.
+"
+" }}}
 "
 " Section: Documentation {{{1
 "
@@ -173,57 +176,81 @@
 "
 " Several variables are checked by the script to determine behavior as follow:
 "
-" VCSCommandCommitOnWrite
+" VCSCommandCommitOnWrite -  ... pending commit ... {{{
 "   This variable, if set to a non-zero value, causes the pending commit to
 "   take place immediately as soon as the log message buffer is written.  If
 "   set to zero, only the VCSCommit mapping will cause the pending commit to
 "   occur.  If not set, it defaults to 1.
 "
-" VCSCommandDeleteOnHide
+" }}}
+" VCSCommandDeleteOnHide - ... temporary VCS buffers ... {{{
+"
 "   This variable, if set to a non-zero value, causes the temporary VCS result
 "   buffers to automatically delete themselves when hidden.
 "
-" VCSCommand{VCSType}DiffOpt
+" }}}
+" VCSCommand{VCSType}DiffOpt - pass options to diff {{{
+"
 "   This variable, if set, determines the options passed to the diff command
 "   of the underlying VCS.  Each VCS plugin defines a default value.
 "
-" VCSCommandDiffSplit
+"   }}}
+" VCSCommandDiffSplit {{{
+"
 "   This variable overrides the VCSCommandSplit variable, but only for buffers
 "   created with VCSVimDiff.
 "
-" VCSCommandDisableAll
+" }}}
+"
+" VCSCommandDisableAll - prevent from loading at all {{{
+"
 "   This variable, if set, prevents the plugin or any extensions from loading
 "   at all.  This is useful when a single runtime distribution is used on
 "   multiple systems with varying versions.
+" 
+" }}}
 "
-" VCSCommandDisableMappings
+" VCSCommandDisableMappings - disable default command mappings {{{
+" 
 "   This variable, if set to a non-zero value, prevents the default command
 "   mappings from being set.
+" 
+" }}}
 "
 " VCSCommandDisableExtensionMappings
 "   This variable, if set to a non-zero value, prevents the default command
 "   mappings from being set for commands specific to an individual VCS.
 "
 " VCSCommandDisableMenu
+"
 "   This variable, if set to a non-zero value, prevents the default command
 "   menu from being set.
 "
-" VCSCommandEdit
+" VCSCommandEdit - ... split/edit ... {{{
+"
 "   This variable controls whether to split the current window to display a
 "   scratch buffer ('split'), or to display it in the current buffer ('edit').
 "   If not set, it defaults to 'split'.
 "
-" VCSCommandEnableBufferSetup
+"   }}}
+"
+" VCSCommandEnableBufferSetup {{{
+" 
 "   This variable, if set to a non-zero value, activates VCS buffer management
 "   mode.  This mode means that the buffer variable 'VCSRevision' is set if
 "   the file is VCS-controlled.  This is useful for displaying version
 "   information in the status bar.  Additional options may be set by
 "   individual VCS plugins.
 "
-" VCSCommandMappings
+" }}}
+"
+" VCSCommandMappings - override the default mappings  {{{
+" 
 "   This variable, if set, overrides the default mappings used for shortcuts.
 "   It should be a List of 2-element Lists, each containing a shortcut and
 "   function name pair.
+" 
+" }}}
 "
 " VCSCommandMapPrefix
 "   This variable, if set, overrides the default mapping prefix ('<Leader>c').
@@ -241,7 +268,8 @@
 "   VCS command output buffers.  For example, '.vcs'.  Using this option may
 "   help avoid problems caused by autocommands dependent on file extension.
 "
-" VCSCommandResultBufferNameFunction
+" VCSCommandResultBufferNameFunction - ... naming VCS command output buffers ... {{{
+"
 "   This variable, if set, specifies a custom function for naming VCS command
 "   output buffers.  This function will be passed the following arguments:
 "
@@ -254,8 +282,10 @@
 "
 "   statusText - extra text associated with the VCS action (such as version
 "   numbers).
+" }}}
 "
-" VCSCommandSplit
+" VCSCommandSplit {{{
+" 
 "   This variable controls the orientation of the various window splits that
 "   may occur (such as with VCSVimDiff, when using a VCS command on a VCS
 "   command buffer, or when the 'VCSCommandEdit' variable is set to 'split'.
@@ -263,14 +293,17 @@
 "   one another.  If set to 'vertical', the resulting windows will be
 "   side-by-side.  If not set, it defaults to 'horizontal' for all but
 "   VCSVimDiff windows.
+" }}}
 "
-" VCSCommandVCSTypeOverride
+" VCSCommandVCSTypeOverride - overriding VCS type detection {{{
+" 
 "   This variable allows the VCS type detection to be overridden on a
 "   path-by-path basis.  The value of this variable is expected to be a List
 "   of Lists.  Each high-level List item is a List containing two elements.
 "   The first element is a regular expression that will be matched against the
 "   full file name of a given buffer.  If it matches, the second element will
 "   be used as the VCS type.
+" }}}
 "
 " Event documentation {{{2
 "   For additional customization, VCSCommand.vim uses User event autocommand
