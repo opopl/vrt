@@ -108,7 +108,7 @@ function! MakeTexFolds(force)
 		let g:Tex_FoldedCommands = g:Tex_FoldedCommands . s
 	endif
 
-	let s = 'verbatim,comment,eq,gather,align,figure,table,thebibliography,'
+	let s = 'verbatim,comment,algorithm,eq,gather,align,figure,table,thebibliography,'
 			\. 'keywords,abstract,titlepage'
     if !exists('g:Tex_FoldedEnvironments')
 		let g:Tex_FoldedEnvironments = s
