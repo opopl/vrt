@@ -44,6 +44,7 @@ endfunction " }}}
 " 	definition of the lst input argument.
 "
 " 	**works recursively**
+"function! Tex_FoldSections(lst, endpat){{{
 function! Tex_FoldSections(lst, endpat)
 	let i = match(a:lst, ',')
 	if i > 0
@@ -63,11 +64,13 @@ function! Tex_FoldSections(lst, endpat)
 	let endpat = '^\s*\\appendix\W\|' . endpat
 	call AddSyntaxFoldItem(s, endpat, 0, -1)
 endfunction
+"endfunction}}}
 " }}}
 " MakeTexFolds: function to create fold items for latex. {{{
 "
 " used in conjunction with MakeSyntaxFolds().
 " see ../plugin/syntaxFolds.vim for documentation
+"function! MakeTexFolds(force){{{
 function! MakeTexFolds(force)
 	if exists('g:Tex_Folding') && !g:Tex_Folding
 		return
@@ -120,7 +123,7 @@ function! MakeTexFolds(force)
 	
     if !exists('g:Tex_FoldedSections')
 		let g:Tex_FoldedSections = 'part,chapter,section,%%fakesection,'
-								\. 'subsection,subsubsection,paragraph'
+								\. 'ksec,subsection,subsubsection,paragraph'
 	endif
 
 	" the order in which these calls are made decides the nestedness. in
@@ -219,7 +222,6 @@ function! MakeTexFolds(force)
 	"
 	" }}}
 	" ========================================================================
-	
 	" {{{ comment lines
 	if g:Tex_FoldedMisc =~ '\<comments\>'
 		call AddSyntaxFoldItem (
@@ -337,6 +339,7 @@ function! MakeTexFolds(force)
 	call MakeSyntaxFolds(a:force)
 	normal! zv
 endfunction
+"endfunction}}}
 
 " }}}
 " TexFoldTextFunction: create fold text for folds {{{
