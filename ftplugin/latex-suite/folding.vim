@@ -123,7 +123,7 @@ function! MakeTexFolds(force)
 	
     if !exists('g:Tex_FoldedSections')
 		let g:Tex_FoldedSections = 'part,chapter,section,%%fakesection,'
-								\. 'ksec,subsection,subsubsection,paragraph'
+								\. 'subsection,ksec,subsubsection,paragraph'
 	endif
 
 	" the order in which these calls are made decides the nestedness. in
