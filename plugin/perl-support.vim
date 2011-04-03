@@ -1,5 +1,5 @@
 "#################################################################################
-"
+""{{{
 "       Filename:  perl-support.vim
 "
 "    Description:  perl-support.vim implements a Perl-IDE for Vim/gVim.  It is
@@ -60,7 +60,7 @@ if exists("g:Perl_Version") || &compatible
   finish
 endif
 let g:Perl_Version= "4.10"
-"
+""}}}
 "#################################################################################
 "
 "  Global variables (with default values) which can be overridden.
@@ -77,7 +77,7 @@ endfunction   " ---------- end of function  Perl_SetGlobalVariable  ----------
 "------------------------------------------------------------------------------
 "  Assign a value to a local variable if a corresponding global variable
 "  exists.
-"------------------------------------------------------------------------------
+"------------------------------------------------------------------------------"{{{
 function! Perl_SetLocalVariable ( name )
   if exists('g:'.a:name)
     exe 'let s:'.a:name.'  = g:'.a:name
@@ -90,11 +90,11 @@ call Perl_SetGlobalVariable( "Perl_PerlRegexSubstitution",'$~' )
 call Perl_SetGlobalVariable( "Perl_Root",'&Perl.' )
 "
 "------------------------------------------------------------------------------
-"
+""}}}
 " Platform specific items:
 " - plugin directory
 " - characters that must be escaped for filenames
-"
+""{{{
 let s:MSWIN = has("win16") || has("win32")   || has("win64")    || has("win95")
 let s:UNIX	= has("unix")  || has("macunix") || has("win32unix")
 "
@@ -106,7 +106,7 @@ let s:Perl_GlobalTemplateDir	= ''
 "
 if  s:MSWIN
   " ==========  MS Windows  ======================================================
-	"
+	""{{{
 	if match( s:sourced_script_file, escape( s:vimfiles, ' \' ) ) == 0
 		" system wide installation
 		let g:Perl_Installation				= 'system'
@@ -124,29 +124,33 @@ if  s:MSWIN
   let s:escfilename 	  					= ''
 	let s:Perl_Display  						= ''
 	"
-else
+else"}}}
   " ==========  Linux/Unix  ======================================================
-	"
+	""{{{
 	if match( expand("<sfile>"), expand( "$HOME" ) ) == 0
 		" user installation assumed
-		let s:plugin_dir  						= $HOME.'/.vim/'
+		"let s:plugin_dir  						= $HOME.'/.vim/'
+		let s:plugin_dir  						= $VIMRUNTIME
 	else
 		" system wide installation
 		let g:Perl_Installation				= 'system'
-		let s:plugin_dir  						= $VIM.'/vimfiles/'
+		"let s:plugin_dir  						= $VIM.'/vimfiles/'
+		let s:plugin_dir  						= $VIMRUNTIME
 		let s:Perl_GlobalTemplateDir	= s:plugin_dir.'perl-support/templates'
 		let s:Perl_GlobalTemplateFile	= s:Perl_GlobalTemplateDir.'/Templates'
 	endif
 	"
-	let s:Perl_LocalTemplateFile		= $HOME.'/.vim/perl-support/templates/Templates'
+	"let s:Perl_LocalTemplateFile		= $HOME.'/.vim/perl-support/templates/Templates'
+	let s:Perl_LocalTemplateFile		= s:Perl_GlobalTemplateFile
+	let s:Perl_CodeSnippets  				= s:plugin_dir.'perl-support/codesnippets/'
+	"let s:Perl_CodeSnippets  				= $HOME.'/.vim/perl-support/codesnippets/'
 	let s:Perl_LocalTemplateDir			= fnamemodify( s:Perl_LocalTemplateFile, ":p:h" ).'/'
-	let s:Perl_CodeSnippets  				= $HOME.'/.vim/perl-support/codesnippets/'
 	let s:escfilename   						= ' \%#[]'
 	let s:Perl_Display							= "$DISPLAY"
-	"
+	""}}}
   " ==============================================================================
 endif
-"
+""}}}
 " g:Perl_CodeSnippets is used in autoload/perlsupportgui.vim
 "
 call Perl_SetGlobalVariable( 'Perl_CodeSnippets', s:Perl_CodeSnippets )
