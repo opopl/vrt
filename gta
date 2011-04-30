@@ -1,6 +1,10 @@
 #/bin/bash
 
-files=( ftplugin/latex-suite/macros/fminipage ftplugin/latex-suite/macros/tab.tex ftplugin/latex-suite/templates/beamer-ctalk.tex ftplugin/latex-suite/templates/beamer-examples/ ftplugin/latex-suite/templates/beamer-ornate-15-45-min.tex ftplugin/latex-suite/templates/beamer-ornate-2-min.tex ftplugin/latex-suite/templates/beamer-ornate-20-mins.tex ftplugin/latex-suite/templates/simple-flow-chart.tex gta )
+#files=( ftplugin/latex-suite/macros/fminipage ftplugin/latex-suite/macros/tab.tex ftplugin/latex-suite/templates/beamer-ctalk.tex ftplugin/latex-suite/templates/beamer-examples/ ftplugin/latex-suite/templates/beamer-ornate-15-45-min.tex ftplugin/latex-suite/templates/beamer-ornate-2-min.tex ftplugin/latex-suite/templates/beamer-ornate-20-mins.tex ftplugin/latex-suite/templates/simple-flow-chart.tex gta )
+
+files=( README.perlsupport autoload/perlsupportgui.vim \
+autoload/perlsupportprofiling.vim autoload/perlsupportregex.vim \
+doc/perlsupport.txt perl-support/ plugin/perl-support.vim )
 
 git a ${files[@]}
 
