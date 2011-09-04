@@ -116,4 +116,6 @@ let b:undo_ftplugin = "setl fo< com< tw< cms< et< inc<" | "{{{1
 let &cpoptions=s:cposet
 unlet s:cposet
 "}}}1
+"
+
 " vim:sw=2

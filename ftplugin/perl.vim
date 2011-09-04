@@ -8,7 +8,7 @@
 " ----------------------------------------------------------------------------
 "
 " Only do this when not done yet for this buffer
-"
+""{{{
 if exists("b:did_PERL_ftplugin")
   finish
 endif
@@ -16,8 +16,10 @@ let b:did_PERL_ftplugin = 1
 "
 let s:UNIX  = has("unix") || has("macunix") || has("win32unix")
 let s:MSWIN = has("win16") || has("win32")   || has("win64")    || has("win95")
+""}}}
 "
-" ---------- tabulator / shiftwidth ------------------------------------------
+"  {{{
+" ---------- tabulator / shiftwidth ------------------------------------------"
 "  Set tabulator and shift width to 4 conforming to the Perl Style Guide.
 "  Uncomment the next two lines to force these settings for all files with
 "  filetype 'perl' .
@@ -46,9 +48,9 @@ if exists("g:Perl_Dictionary_File")
   silent! exe 'setlocal dictionary='.g:Perl_Dictionary_File
   silent! exe 'setlocal dictionary+='.save
 endif
-"
+""}}}
 " ---------- commands --------------------------------------------------
-"
+""{{{
 command! -nargs=? CriticOptions         call Perl_PerlCriticOptions  (<f-args>)
 command! -nargs=1 -complete=customlist,Perl_PerlCriticSeverityList   CriticSeverity   call Perl_PerlCriticSeverity (<f-args>)
 command! -nargs=1 -complete=customlist,Perl_PerlCriticVerbosityList  CriticVerbosity  call Perl_PerlCriticVerbosity(<f-args>)
@@ -70,7 +72,7 @@ command! -nargs=1 -complete=customlist,perlsupportprofiling#Perl_NYTProfSortList
 command! -nargs=0  NYTProfCSV call perlsupportprofiling#Perl_NYTprofReadCSV  ()
 "
 command! -nargs=0  NYTProfHTML call perlsupportprofiling#Perl_NYTprofReadHtml  ()
-"
+""}}}
 " ---------- Key mappings : function keys ------------------------------------
 "
 "   Ctrl-F9   run script
@@ -78,7 +80,7 @@ command! -nargs=0  NYTProfHTML call perlsupportprofiling#Perl_NYTprofReadHtml  (
 "  Shift-F9   set command line arguments
 "  Shift-F1   read Perl documentation
 " Vim (non-GUI) : shifted keys are mapped to their unshifted key !!!
-"
+""{{{
 if has("gui_running")
   "
    map    <buffer>  <silent>  <A-F9>             :call Perl_SyntaxCheck()<CR>
@@ -93,7 +95,7 @@ if has("gui_running")
    map    <buffer>  <silent>  <S-F1>             :call Perl_perldoc()<CR><CR>
   imap    <buffer>  <silent>  <S-F1>        <C-C>:call Perl_perldoc()<CR><CR>
 endif
-"
+""}}}
 "-------------------------------------------------------------------------------
 "   Key mappings for menu entries
 "   The mappings can be switched on and off by g:Perl_NoKeyMappings
@@ -108,7 +110,7 @@ if !exists("g:Perl_NoKeyMappings") || ( exists("g:Perl_NoKeyMappings") && g:Perl
   " ----------------------------------------------------------------------------
   " Comments
   " ----------------------------------------------------------------------------
-  "
+  ""{{{
   nnoremap    <buffer>  <silent>  <LocalLeader>cl         :call Perl_LineEndComment("")<CR>
   inoremap    <buffer>  <silent>  <LocalLeader>cl    <C-C>:call Perl_LineEndComment("")<CR>
   vnoremap    <buffer>  <silent>  <LocalLeader>cl    <C-C>:call Perl_MultiLineEndComments()<CR>a
@@ -161,11 +163,11 @@ if !exists("g:Perl_NoKeyMappings") || ( exists("g:Perl_NoKeyMappings") && g:Perl
   nnoremap    <buffer>  <silent>  <LocalLeader>cb         :call Perl_CommentBlock("a")<CR>
   vnoremap    <buffer>  <silent>  <LocalLeader>cb    <C-C>:call Perl_CommentBlock("v")<CR>
   nnoremap    <buffer>  <silent>  <LocalLeader>cn         :call Perl_UncommentBlock()<CR>
-  "
+  ""}}}
   " ----------------------------------------------------------------------------
   " Statements
   " ----------------------------------------------------------------------------
-  "
+  ""{{{
   nnoremap    <buffer>  <silent>  <LocalLeader>sd              :call Perl_InsertTemplate("statements.do-while")<CR>
   nnoremap    <buffer>  <silent>  <LocalLeader>sf              :call Perl_InsertTemplate("statements.for")<CR>
   nnoremap    <buffer>  <silent>  <LocalLeader>sfe             :call Perl_InsertTemplate("statements.foreach")<CR>
@@ -205,11 +207,11 @@ if !exists("g:Perl_NoKeyMappings") || ( exists("g:Perl_NoKeyMappings") && g:Perl
   inoremap    <buffer>  <silent>  <LocalLeader>sue   <C-C>:call Perl_InsertTemplate("statements.unless-else")<CR>
   inoremap    <buffer>  <silent>  <LocalLeader>st    <C-C>:call Perl_InsertTemplate("statements.until")<CR>
   inoremap    <buffer>  <silent>  <LocalLeader>sw    <C-C>:call Perl_InsertTemplate("statements.while")<CR>
-  "
+  ""}}}
   " ----------------------------------------------------------------------------
   " Snippets
   " ----------------------------------------------------------------------------
-  "
+  ""{{{
   nnoremap    <buffer>  <silent>  <LocalLeader>nr    <C-C>:call Perl_CodeSnippet("r")<CR>
   nnoremap    <buffer>  <silent>  <LocalLeader>nw    <C-C>:call Perl_CodeSnippet("w")<CR>
   vnoremap    <buffer>  <silent>  <LocalLeader>nw    <C-C>:call Perl_CodeSnippet("wv")<CR>
@@ -220,11 +222,11 @@ if !exists("g:Perl_NoKeyMappings") || ( exists("g:Perl_NoKeyMappings") && g:Perl
 		noremap    <buffer>  <silent>  <LocalLeader>ntg        :call Perl_BrowseTemplateFiles("Global")<CR>
 	endif
   noremap    <buffer>  <silent>  <LocalLeader>ntr        :call Perl_RereadTemplates()<CR>
-  "
+  ""}}}
   " ----------------------------------------------------------------------------
   " Idioms
   " ----------------------------------------------------------------------------
-  "
+  ""{{{
 	if exists("g:Perl_DollarKeys") && g:Perl_DollarKeys == 'yes'
 		nnoremap    <buffer>  <silent>  <LocalLeader>$         :call Perl_InsertTemplate("idioms.scalar")<CR>
 		nnoremap    <buffer>  <silent>  <LocalLeader>$=        :call Perl_InsertTemplate("idioms.scalar-assign")<CR>
@@ -291,11 +293,11 @@ if !exists("g:Perl_NoKeyMappings") || ( exists("g:Perl_NoKeyMappings") && g:Perl
   nnoremap    <buffer>  <silent>  <LocalLeader>ifu        :call Perl_InsertTemplate("idioms.subroutine")<CR>
   inoremap    <buffer>  <silent>  <LocalLeader>ifu   <C-C>:call Perl_InsertTemplate("idioms.subroutine")<CR>
   vnoremap    <buffer>  <silent>  <LocalLeader>ifu   <C-C>:call Perl_InsertTemplate("idioms.subroutine", "v")<CR>
-  "
+  ""}}}
   " ----------------------------------------------------------------------------
   " Regex
   " ----------------------------------------------------------------------------
-  "
+  ""{{{
   nnoremap    <buffer>  <silent>  <LocalLeader>xr        :call perlsupportregex#Perl_RegexPick( "regexp", "n" )<CR>j
   nnoremap    <buffer>  <silent>  <LocalLeader>xs        :call perlsupportregex#Perl_RegexPick( "string", "n" )<CR>j
   nnoremap    <buffer>  <silent>  <LocalLeader>xf        :call perlsupportregex#Perl_RegexPickFlag( "n" )<CR>
@@ -306,11 +308,11 @@ if !exists("g:Perl_NoKeyMappings") || ( exists("g:Perl_NoKeyMappings") && g:Perl
   nnoremap    <buffer>  <silent>  <LocalLeader>xmm       :call perlsupportregex#Perl_RegexMatchSeveral( )<CR>
   nnoremap    <buffer>  <silent>  <LocalLeader>xe        :call perlsupportregex#Perl_RegexExplain( "n" )<CR>
   vnoremap    <buffer>  <silent>  <LocalLeader>xe   <C-C>:call perlsupportregex#Perl_RegexExplain( "v" )<CR>
-  "
+  ""}}}
   " ----------------------------------------------------------------------------
   " POSIX character classes
   " ----------------------------------------------------------------------------
-  "
+  ""{{{
   nnoremap    <buffer>  <silent>  <LocalLeader>pa    a[:alnum:]<Esc>
   nnoremap    <buffer>  <silent>  <LocalLeader>ph    a[:alpha:]<Esc>
   nnoremap    <buffer>  <silent>  <LocalLeader>pi    a[:ascii:]<Esc>
@@ -340,29 +342,29 @@ if !exists("g:Perl_NoKeyMappings") || ( exists("g:Perl_NoKeyMappings") && g:Perl
   inoremap    <buffer>  <silent>  <LocalLeader>pu    [:upper:]
   inoremap    <buffer>  <silent>  <LocalLeader>pw    [:word:]
   inoremap    <buffer>  <silent>  <LocalLeader>px    [:xdigit:]
-  "
+  ""}}}
   " ----------------------------------------------------------------------------
   " POD
   " ----------------------------------------------------------------------------
-  "
+  ""{{{
    map    <buffer>  <silent>  <LocalLeader>pod         :call Perl_PodCheck()<CR>
    map    <buffer>  <silent>  <LocalLeader>podh        :call Perl_POD('html')<CR>
    map    <buffer>  <silent>  <LocalLeader>podm        :call Perl_POD('man')<CR>
    map    <buffer>  <silent>  <LocalLeader>podt        :call Perl_POD('text')<CR>
-  "
+  ""}}}
   " ----------------------------------------------------------------------------
   " Profiling
   " ----------------------------------------------------------------------------
-  "
+  ""{{{
    map    <buffer>  <silent>  <LocalLeader>rps         :call perlsupportprofiling#Perl_Smallprof()<CR>
    map    <buffer>  <silent>  <LocalLeader>rpf         :call perlsupportprofiling#Perl_Fastprof()<CR>
    map    <buffer>  <silent>  <LocalLeader>rpn         :call perlsupportprofiling#Perl_NYTprof()<CR>
    map    <buffer>  <silent>  <LocalLeader>rpnc        :call perlsupportprofiling#Perl_NYTprofReadCSV("read","line")<CR>
-  "
+  ""}}}
   " ----------------------------------------------------------------------------
   " Run
   " ----------------------------------------------------------------------------
-  "
+  ""{{{
    noremap    <buffer>  <silent>  <LocalLeader>rr         :call Perl_Run()<CR>
    noremap    <buffer>  <silent>  <LocalLeader>rs         :call Perl_SyntaxCheck()<CR>
    noremap    <buffer>  <silent>  <LocalLeader>ra         :call Perl_Arguments()<CR>
@@ -409,12 +411,12 @@ if !exists("g:Perl_NoKeyMappings") || ( exists("g:Perl_NoKeyMappings") && g:Perl
   "
   "
 endif
-
+"}}}
 " ----------------------------------------------------------------------------
 "  Generate (possibly exuberant) Ctags style tags for Perl sourcecode.
 "  Controlled by g:Perl_PerlTags, enabled by default.
 " ----------------------------------------------------------------------------
-if has('perl') && exists("g:Perl_PerlTags") && g:Perl_PerlTags == 'enabled'
+if has('perl') && exists("g:Perl_PerlTags") && g:Perl_PerlTags == 'enabled'"{{{
 
 
 	if ! exists("s:defined_functions")
@@ -442,15 +444,15 @@ EOF
 	augroup END
 
 endif
-
+"}}}
 "-------------------------------------------------------------------------------
 " additional mapping : {<CR> always opens a block
 "-------------------------------------------------------------------------------
-inoremap    <buffer>  {<CR>  {<CR>}<Esc>O
+inoremap    <buffer>  {<CR>  {<CR>}<Esc>O"{{{
 vnoremap    <buffer>  {<CR> s{<CR>}<Esc>kp=iB
 "
 if !exists("g:Perl_Ctrl_j") || ( exists("g:Perl_Ctrl_j") && g:Perl_Ctrl_j != 'off' )
   nmap    <buffer>  <silent>  <C-j>    i<C-R>=Perl_JumpCtrlJ()<CR>
   imap    <buffer>  <silent>  <C-j>     <C-R>=Perl_JumpCtrlJ()<CR>
-endif
+endif"}}}
 " ----------------------------------------------------------------------------
