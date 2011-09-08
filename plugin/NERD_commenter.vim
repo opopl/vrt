@@ -506,7 +506,10 @@ function s:SetUpForNewFiletype(filetype, forceReset)
     elseif a:filetype ==? "pfmain"
         call s:MapDelimiters('//', '')
     elseif a:filetype ==? "php"
-        call s:MapDelimitersWithAlternative('//','','/*', '*/')
+        call s:MapDelimitersWithAlternative('//','','/*', '*/')	
+    elseif a:filetype ==? "perl"
+        "call s:MapDelimitersWithAlternative('#','','', '')
+        call s:MapDelimiters('#', '')
     elseif a:filetype ==? "pic"
         call s:MapDelimiters(';', '')
     elseif a:filetype ==? "pike"

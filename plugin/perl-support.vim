@@ -129,21 +129,18 @@ else"}}}
 	""{{{
 	if match( expand("<sfile>"), expand( "$HOME" ) ) == 0
 		" user installation assumed
-		"let s:plugin_dir  						= $HOME.'/.vim/'
-		let s:plugin_dir  						= $VIMRUNTIME
+		let s:plugin_dir  						= $VIMRUNTIME.'/'
 	else
 		" system wide installation
 		let g:Perl_Installation				= 'system'
-		"let s:plugin_dir  						= $VIM.'/vimfiles/'
-		let s:plugin_dir  						= $VIMRUNTIME
-		let s:Perl_GlobalTemplateDir	= s:plugin_dir.'perl-support/templates'
-		let s:Perl_GlobalTemplateFile	= s:Perl_GlobalTemplateDir.'/Templates'
+		let s:plugin_dir  						= $VIMRUNTIME.'/'
 	endif
+		
+	let s:Perl_GlobalTemplateDir	= s:plugin_dir.'/perl-support/templates'
+	let s:Perl_GlobalTemplateFile	= s:Perl_GlobalTemplateDir.'/Templates'
 	"
-	"let s:Perl_LocalTemplateFile		= $HOME.'/.vim/perl-support/templates/Templates'
 	let s:Perl_LocalTemplateFile		= s:Perl_GlobalTemplateFile
-	let s:Perl_CodeSnippets  				= s:plugin_dir.'perl-support/codesnippets/'
-	"let s:Perl_CodeSnippets  				= $HOME.'/.vim/perl-support/codesnippets/'
+	let s:Perl_CodeSnippets  				= s:plugin_dir.'/perl-support/codesnippets/'
 	let s:Perl_LocalTemplateDir			= fnamemodify( s:Perl_LocalTemplateFile, ":p:h" ).'/'
 	let s:escfilename   						= ' \%#[]'
 	let s:Perl_Display							= "$DISPLAY"
@@ -2395,13 +2392,13 @@ function! Perl_do_tags(filename, tagsfile)
 		my $tagsfile = VIM::Eval('a:tagsfile');
 
 		if ( -e $filename ) {
-			$naive_tagger->process(files => $filename, refresh=>1 );
+			#$naive_tagger->process(files => $filename, refresh=>1 );
 			}
 
 		VIM::SetOption("tags+=$tagsfile");
 
 		# of course, it may not even output, for example, if there's nothing new to process
-		$naive_tagger->output( outfile => $tagsfile );
+		#$naive_tagger->output( outfile => $tagsfile );
 EOF
 
 endfunction    " ----------  end of function Perl_do_tags  ----------
