@@ -1,3 +1,3 @@
 
 "set compiler
-compiler gf
+"compiler gfortran
