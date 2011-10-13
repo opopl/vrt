@@ -1,5 +1,6 @@
 
 "set compiler
+"compiler gfortran
 compiler gf
 " abbreviations {{{
 "ab in INTEGER, DIMENSION(<++>) ::
