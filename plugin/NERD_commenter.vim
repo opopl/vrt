@@ -221,6 +221,8 @@ function s:SetUpForNewFiletype(filetype, forceReset)
         call s:MapDelimiters('$!', '')
     elseif a:filetype ==? "dakota"
         call s:MapDelimiters('#', '')
+    elseif a:filetype ==? "dat"
+        call s:MapDelimiters('#', '')
     elseif a:filetype ==? "debcontrol"
         call s:MapDelimiters('#', '')
     elseif a:filetype ==? "debsources"

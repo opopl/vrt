@@ -1,7 +1,7 @@
-*bashsupport.txt*                Bash Support                February 13 2009
+*bashsupport.txt*                Bash Support                   June 26 2011
 
-bash Support                                      *bash-support* *bashsupport* {{{1
-                            Plugin version 3.1.1 {{{2
+bash Support                                      *bash-support* *bashsupport*
+                             Plugin version 3.6
                         for Vim version 7.0 and above
                        Fritz Mehner  <mehner@fh-swf.de>
 
@@ -12,7 +12,7 @@ running a script, starting a debugger  can be done with a keystroke.  There
 are many additional hints and options which can improve speed and comfort when
 writing shell scripts. This plugin can be used for Bash version 4.0.
 
- 1.     Usage with GUI                           |bashsupport-usage-gvim| {{{2
+ 1.     Usage with GUI                           |bashsupport-usage-gvim|
  1.1     Menu 'Comments'                         |bashsupport-comments|
  1.1.1   Append aligned comments                 |bashsupport-aligned-comm|
  1.1.2   Adjust end-of-line comments             |bashsupport-comm-realign|
@@ -39,15 +39,15 @@ writing shell scripts. This plugin can be used for Bash version 4.0.
  1.7.7    Xterm size                             |bashsupport-xterm|
  1.7.8    Output redirection                     |bashsupport-output|
  1.8     Menu 'Help'                             |bashsupport-help|
- 2.     Usage without GUI                        |bashsupport-usage-vim| {{{2
- 3.     Hot keys                                 |bashsupport-hotkeys| {{{2
- 4.     Customization and configuration          |bashsupport-customization| {{{2
+ 2.     Usage without GUI                        |bashsupport-usage-vim|
+ 3.     Hot keys                                 |bashsupport-hotkeys|
+ 4.     Customization and configuration          |bashsupport-customization|
  4.1     Files                                   |bashsupport-custom-files|
  4.2     Global variables                        |bashsupport-custom-variables|
  4.3     The root menu                           |bashsupport-custom-root|
  4.4     System-wide installation                |bashsupport-system-wide|
  4.5     Non-standard installation               |bashsupport-non-standard|
- 5.      Template files and tags                 |bashsupport-templates| {{{2
+ 5.      Template files and tags                 |bashsupport-templates|
  5.1      Template files                         |bashsupport-templates-files|
  5.2      Macros                                 |bashsupport-templates-macros|
  5.2.1   Formats for date and time               |bashsupport-templates-date|
@@ -59,33 +59,34 @@ writing shell scripts. This plugin can be used for Bash version 4.0.
  5.3.5    Command Ctrl-j                         |bashsupport-Ctrl-j|
  5.4     Switching between template sets         |bashsupport-templates-sets|
  5.5     Additional filenames with filetype 'sh' |bashsupport-also-bash|
- 6.     Bash dictionary                          |bashsupport-dictionary| {{{2
- 7.     Additional Mappings                      |bashsupport-ad-mappings| {{{2
- 8.     Windows particularities                  |bashsupport-windows| {{{2
- 9.     Release Notes                            |bashsupport-release-notes| {{{2
+ 6.     Bash dictionary                          |bashsupport-dictionary|
+ 7.     Additional Mappings                      |bashsupport-ad-mappings|
+ 8.     Windows particularities                  |bashsupport-windows|
+ 9.     TROUBLESHOOTING                          |bashsupport-troubleshooting|
+10.     Release Notes                            |bashsupport-release-notes|
 
         How to add this help file to Vim's help  |add-local-help|
 
 
 ==============================================================================
-1.  USAGE with GUI  (gVim)                            *bashsupport-usage-gvim* {{{1
+1.  USAGE with GUI  (gVim)                            *bashsupport-usage-gvim*
 ==============================================================================
 
 If the menus are not visible call them with the entry "Load Bash Support"
 in the standard Tools-menu.
 
 ------------------------------------------------------------------------------
-1.1  MENU 'Comments'                                    *bashsupport-comments* {{{2
+1.1  MENU 'Comments'                                    *bashsupport-comments*
 ------------------------------------------------------------------------------
 
-1.1.1 APPEND ALIGNED COMMENTS TO CONSECUTIVE LINES  *bashsupport-aligned-comm* {{{3
+1.1.1 APPEND ALIGNED COMMENTS TO CONSECUTIVE LINES  *bashsupport-aligned-comm*
 --------------------------------------------------
 
 In NORMAL MODE the menu entry
  'Line End Comm.'
 will append a comment to the current line.
 
-In VISUAL MODE this entry will append aligned comments to all marked lines.
+In VISUAL MODE, this item will append aligned comments to all marked lines.
 Marking the 4 lines
 
  x11=11;
@@ -117,7 +118,7 @@ because this position is most likely not the desired starting column.
 Your choice will be confirmed.
 
 
-1.1.2 ADJUST END-OF-LINE COMMENTS                   *bashsupport-comm-realign* {{{3
+1.1.2 ADJUST END-OF-LINE COMMENTS                   *bashsupport-comm-realign*
 ---------------------------------
 After some copy/paste/change actions comments may be misaligned:
 
@@ -134,7 +135,7 @@ comments in the marked block will be aligned:
  basename=${pathname##*/}                       # the basename
  dirname=${pathname%/*}                         # the pathname
 
-1.1.3  TOGGLE COMMENTS                               *bashsupport-comm-toggle* {{{3
+1.1.3  TOGGLE COMMENTS                               *bashsupport-comm-toggle*
 ----------------------
 The comment sign # can be set or removed at the beginning of the current line
 or for a marked block.  A single line needs not to be marked (normal mode).
@@ -154,13 +155,13 @@ will be changed into (and vice versa)
 Whitespaces in front of the hash sign will be preserved. 
 
 
-1.1.4 FRAME COMMENTS, FILE HEADER, ...            *bashsupport-comm-templates* {{{3
+1.1.4 FRAME COMMENTS, FILE HEADER, ...            *bashsupport-comm-templates*
 --------------------------------------
 
 Frame comments, function descriptions and file header comments are read as
 templates from the appropriate files (see |bashsupport-tempfiles|).
 
-1.1.5 COMMENT/UNCOMMENT WITH echo                      *bashsupport-comm-echo* {{{3
+1.1.5 COMMENT/UNCOMMENT WITH echo                      *bashsupport-comm-echo*
 ---------------------------------
 
 The echo-entry in the Comments-menu can be used to put one or more statements
@@ -179,7 +180,7 @@ removed; the cursor will then be moved to the next line.
 Longer sections of a script are better commented out with set options
 |bashsupport-set|.
 
-1.1.6 KEYWORD+comment                              *bashsupport-comm-keywords* {{{3
+1.1.6 KEYWORD+comment                              *bashsupport-comm-keywords*
 ---------------------
 
 Preliminary line end comments to document (and find again) places where work
@@ -190,10 +191,10 @@ will be resumed shortly, like
 Usually not meant for the final documentation.
 
 ------------------------------------------------------------------------------
-1.2  MENU 'Statements'                                *bashsupport-statements* {{{2
+1.2  MENU 'Statements'                                *bashsupport-statements*
 ------------------------------------------------------------------------------
 
-1.2.1  NORMAL MODE, INSERT MODE.                   *bashsupport-stat-norm-ins* {{{3
+1.2.1  NORMAL MODE, INSERT MODE.                   *bashsupport-stat-norm-ins*
 --------------------------------
 
 An empty statement will be inserted and properly indented. The entry 'if'
@@ -204,7 +205,7 @@ will insert an if-statement:
 
 The statements will be indented.
 
-1.2.2  VISUAL MODE                                   *bashsupport-stat-visual* {{{3
+1.2.2  VISUAL MODE                                   *bashsupport-stat-visual*
 ------------------
 The highlighted area
 
@@ -274,7 +275,7 @@ parentheses, quotes or an echo with quotes:
   ${#...[*]}
   ${!...[*]}
 
-1.2.3 CODE SNIPPETS                                *bashsupport-stat-snippets* {{{3
+1.2.3 CODE SNIPPETS                                *bashsupport-stat-snippets*
 -------------------
 
 Code snippets are pieces of code which are kept in separate files in a special
@@ -315,12 +316,11 @@ variable in your ~/.vimrc :
 
 The default value is 'gui'. 
 
-1.2.4  Code Templates                             *bashsupport-templates-menu* {{{3
+1.2.4  Code Templates                             *bashsupport-templates-menu*
 ---------------------
-Nearly all menu entries insert code snippets or comments. The nontrivial of
-these stuff is taken from template files and can be changed by the user to
-meet his requirements (see|bashsupport-templates|on how to use the template
-system).
+Nearly all menu entries insert code snippets or comments. All of these are
+contained within template files and can be changed by the user to meet their
+requirements (see|bashsupport-templates|on how to use the template system).
 
 The menu item 'edit local templates' opens the main template file in a local
 plugin installation. This is usually the file
@@ -345,7 +345,7 @@ The default value is 'gui'. 'explorer' will start the file explorer
 (see help|:Explore|). To use the commandline asign 'commandline'.
 
 ------------------------------------------------------------------------------
-1.3  MENU 'set'                                              *bashsupport-set* {{{2
+1.3  MENU 'set'                                              *bashsupport-set*
 ------------------------------------------------------------------------------
 
 Calling a set-command (submenu "set") in NORMAL or INSERT MODE will set this
@@ -370,7 +370,7 @@ be searched for with the vim star command (*).
 
 
 ------------------------------------------------------------------------------
-1.4  MENU 'shopt'                                          *bashsupport-shopt* {{{2
+1.4  MENU 'shopt'                                          *bashsupport-shopt*
 ------------------------------------------------------------------------------
 
 Calling a shopt-command (submenu "shopt") in NORMAL or INSERT MODE will set
@@ -394,7 +394,7 @@ The option numbers ShoptOptionNumber_xxx are automatically incremented. They
 can be searched for with the vim star command (*).
 
 ------------------------------------------------------------------------------
-1.5  MENU 'Regex'                                          *bashsupport-regex* {{{2
+1.5  MENU 'Regex'                                          *bashsupport-regex*
 ------------------------------------------------------------------------------
 
 This menu can be used to compose regular expressions with a few keystrokes.
@@ -407,7 +407,7 @@ will be changed into
 by the first choice.
 
 ------------------------------------------------------------------------------
-1.6  MENU 'I/O-Redir'                                   *bashsupport-io-redir* {{{2
+1.6  MENU 'I/O-Redir'                                   *bashsupport-io-redir*
 ------------------------------------------------------------------------------
 
 This menu can be used to insert I/O redirectors. The cursor will be positioned
@@ -422,10 +422,10 @@ EOF
 # ===== end of here-document =====
 
 ------------------------------------------------------------------------------
-1.7  MENU 'Run'                                              *bashsupport-run* {{{2
+1.7  MENU 'Run'                                              *bashsupport-run*
 ------------------------------------------------------------------------------
 
-1.7.1 Save and run                                    *bashsupport-run-script* {{{3
+1.7.1 Save and run                                    *bashsupport-run-script*
 ------------------
 
 Save the current buffer to his file and run this file. The command line, the
@@ -439,7 +439,7 @@ destination is VIM runtime errors are caught in an error window allowing
 quickfix commands to be used (see|quickfix|).
 
 
-1.7.2 Save and check syntax                         *bashsupport-syntax-check* {{{3
+1.7.2 Save and check syntax                         *bashsupport-syntax-check*
 ---------------------------
 
 Save the current buffer to this file and run this file with the -n flag
@@ -471,7 +471,7 @@ shopts options for Bash (GNU Bash-4.0) are recognized:
   progcomp                 promptvars    restricted_shell  shift_verbose sourcepath
   xpg_echo
 
-1.7.3 Error format                                   *bashsupport-errorformat* {{{3
+1.7.3 Error format                                   *bashsupport-errorformat*
 ------------------
 The format used to parse runtime errors is '%f:\ %s\ %l:\ %m'.  This format is
 appropriate for most locales including 'C' and 'POSIX'. The '%s' part looks for
@@ -484,7 +484,7 @@ reported.  In this case add a line like
 to '~/.vimrc' to redefine the error format. Replace '%s' by the translation
 of this word in the current language.
 
-1.7.4 Command line arguments                        *bashsupport-cmdline-args* {{{3
+1.7.4 Command line arguments                        *bashsupport-cmdline-args*
 ----------------------------
 
 The entry 'com. line arg.' calls an input dialog which asks for command line
@@ -499,7 +499,7 @@ If the buffer gets a new name with "save as" the arguments will now belong to
 the buffer with the new name.
 
 
-1.7.5 START DEBUGGER                                    *bashsupport-debugger* {{{3
+1.7.5 START DEBUGGER                                    *bashsupport-debugger*
 --------------------
 
 Start the debugger 'bashdb' or the frontend 'ddd' from the menu entry
@@ -529,7 +529,7 @@ In all cases the command line arguments from the argument setting
 (|bashsupport-cmdline-args|) are passed to the debugger.
 
 
-1.7.6 Hardcopy                                          *bashsupport-hardcopy* {{{3
+1.7.6 Hardcopy                                          *bashsupport-hardcopy*
 --------------
 
 Generates a PostScript file from the whole buffer or from a marked region.
@@ -553,13 +553,13 @@ or by setting a global variable in the file '.vimrc', e.g. :
 See :h printheader and :h strftime()  for more details.
 
 
-1.7.7 Xterm size                                           *bashsupport-xterm* {{{3
+1.7.7 Xterm size                                           *bashsupport-xterm*
 ----------------
 
 The size of the xterm (see below) can be changes for the current session.  The
 size has to be specified as COLUMNS LINES (e.g. 96 32 ).
 
-1.7.8 Output redirection                                  *bashsupport-output* {{{3
+1.7.8 Output redirection                                  *bashsupport-output*
 ------------------------
 
 The last menu entry 'output: ... ' has 3 states:
@@ -625,7 +625,7 @@ in '.vimrc' by the global variable g:BASH_OutputGvim, e.g.
 The methods are "vim", "buffer" and "xterm".
 
 ------------------------------------------------------------------------------
-1.8  MENU 'Help'                                            *bashsupport-help* {{{2
+1.8  MENU 'Help'                                            *bashsupport-help*
 ------------------------------------------------------------------------------
 
 Item 'help (Bash builtins)'
@@ -650,7 +650,7 @@ Display this help text if it was properly added with ':helptags'.
 
 
 ==============================================================================
-2.  USAGE without GUI  (Vim)                           *bashsupport-usage-vim* {{{1
+2.  USAGE without GUI  (Vim)                           *bashsupport-usage-vim*
 ==============================================================================
 
 The frequently used constructs can be inserted with key mappings.  The
@@ -666,7 +666,7 @@ following character(s) will only be recognized for a short time.
 
   Legend:  (i) insert mode, (n) normal mode, (v) visual mode
 
-  -- bash help ------------------------------------------ {{{2
+  -- bash help ------------------------------------------
 
   \hb     Displays the Bash manual        (n, i)
   \hh     Displays help for the builtin   (n, i)
@@ -675,10 +675,10 @@ following character(s) will only be recognized for a short time.
   \hm     displays the manual for the     (n, i)
           Bash command under the cursor
           The tab expansion is active.
-  \hp     Displays the Vim help page for  (n, i)
+  \hbs    Displays the Vim help page for  (n, i)
           this plugin.
 
-  -- Comments ------------------------------------------- {{{2
+  -- Comments -------------------------------------------
 
   \cl     line end comment                (n, i, v)
   \cj     adjust end-of-line comments     (n, i, v)
@@ -698,10 +698,10 @@ following character(s) will only be recognized for a short time.
   \cr     remove echo "..."               (n, i)
   \cv     vim modeline                    (n, i)
 
-  -- Statements ------------------------------------------ {{{2
+  -- Statements ------------------------------------------
 
   \sc     case in ... esac                (n, i)
-  \sl     elif then                       (n, i)
+  \sei    elif then                       (n, i)
   \sf     for in do done                  (n, i, v)
   \sfo    for ((...)) do done             (n, i, v)
   \si     if then fi                      (n, i, v)
@@ -712,8 +712,14 @@ following character(s) will only be recognized for a short time.
   \sfu    function                        (n, i, v)
   \se     echo -e "..."                   (n, i, v)
   \sp     printf "..."                    (n, i, v)
+  \sa     array element ${.[.]}           (n, i, v)
+  \saa    array elements ${.[@]}          (n, i, v)
+  \sa1    array elements, 1 word ${.[*]}  (n, i, v)
+  \ssa    subarray ${.[@]::}              (n, i, v)
+  \san    no. of array elements ${#.[@]}  (n, i, v)
+  \sai    list of arr. indices ${!.[*]}   (n, i, v)
 
-  -- Snippets - ------------------------------------------ {{{2
+  -- Snippets --------------------------------------------
 
   \nr     read code snippet               (n)
   \nw     write code snippet              (n, v)
@@ -724,7 +730,16 @@ following character(s) will only be recognized for a short time.
   \ntr    reread the templates            (n)
   \nts    switch template style           (n)
 
-  -- POSIX Character Classes ----------------------------- {{{2
+  -- Test ------------------------------------------------
+
+  \t      unary operator, 1 arg.: \verb'[ -  ]'  (n, i)
+  \t2     binary operator, 2 arg: \verb'[  -  ]' (n, i)
+
+  -- Regular Expression ----------------------------------
+
+  \xm     [[  =~  ]]                      (n, i)
+
+  -- POSIX Character Classes -----------------------------
 
   \pan    [:alnum:]                       (n, i)
   \pal    [:alpha:]                       (n, i)
@@ -741,7 +756,7 @@ following character(s) will only be recognized for a short time.
   \pw     [:word:]                        (n, i)
   \px     [:xdigit:]                      (n, i)
 
-  -- Run ------------------------------------------------- {{{2
+  -- Run -------------------------------------------------
 
   \rr     update file, run script         (n, i)
   \rc     update file, check syntax       (n, i)
@@ -754,7 +769,7 @@ following character(s) will only be recognized for a short time.
   \rt     set xterm size                  (n, i)
   \ro     change output destination       (n, i)
 
-  -- Load / Unload bash Support -------------------------- {{{2
+  -- Load / Unload bash Support --------------------------
 
   \lbs    Load Bash Support               (n, GUI only)
   \ubs    Unload Bash Support             (n, GUI only)
@@ -766,7 +781,7 @@ Multiline inserts and code snippets will be indented after insertion.
 The hot keys are defined in the file type plugin 'sh.vim' (part of this
 bash-support plugin package).
 
-Changing the default map leader '\' {{{2
+Changing the default map leader '\'
 -----------------------------------
 The map leader can be changed by the user by setting a global variable in the
 file .vimrc 
@@ -779,7 +794,7 @@ only files with filetype 'sh'.
 
 
 ==============================================================================
-3.  HOT KEYS                                             *bashsupport-hotkeys* {{{1
+3.  HOT KEYS                                             *bashsupport-hotkeys*
 ==============================================================================
 
 The following hot keys are defined in NORMAL, VISUAL and INSERT MODE:
@@ -794,11 +809,11 @@ See |bashsupport-usage-vim| for more hotkeys.
 
 
 ==============================================================================
-4.0  CUSTOMIZATION                                 *bashsupport-customization* {{{1
+4.0  CUSTOMIZATION                                 *bashsupport-customization*
 ==============================================================================
 
 ------------------------------------------------------------------------------
-4.1  FILES                                          *bashsupport-custom-files* {{{2
+4.1  FILES                                          *bashsupport-custom-files*
 ------------------------------------------------------------------------------
 
 README.bashsupport                  Release notes, installation description.
@@ -837,13 +852,13 @@ bash-support/doc/*                    Hotkey reference card (PDF), changelog.
 
 
 ------------------------------------------------------------------------------
-4.2  GLOBAL VARIABLES                           *bashsupport-custom-variables* {{{2
+4.2  GLOBAL VARIABLES                           *bashsupport-custom-variables*
 ------------------------------------------------------------------------------
 
 Several global variables are checked by the script to customize it:
 
 ---------------------------------------------------------------------------------------
-global variable                default value {{{3
+global variable                default value
 ---------------------------------------------------------------------------------------
 g:BASH_GlobalTemplateFile      root_dir.'bash-support/templates/Templates'
 g:BASH_LocalTemplateFile       $HOME.'/.vim/bash-support/templates/Templates'
@@ -867,7 +882,7 @@ g:BASH_LineEndCommColDefault   49
 g:BASH_SyntaxCheckOptionsGlob  ''
 g:BASH_Printheader             '%<%f%h%m%<  %=%{strftime('%x %X')}     Page %N'
 g:BASH_BASH                    $SHELL         (Linux/U**X)
-                               'win-bash.exe' (Windows)
+                               'bash.exe'     (Windows)
 g:BASH_Man                     'man'          (Linux/U**X)
                                'man.exe'      (Windows)
 g:BASH_MapLeader               '\'
@@ -876,7 +891,7 @@ g:BASH_AlsoBash                ''
 
 --------------------------------------------------------------------------------
 
- 1. group: Defines the text which will be inserted for the tags when a template {{{3
+ 1. group: Defines the text which will be inserted for the tags when a template
            is read in (see |bashsupport-tempfiles|).
  
            g:BASH_GlobalTemplateFile     : sets the global template file  (see|bashsupport-templates|)
@@ -884,7 +899,7 @@ g:BASH_AlsoBash                ''
            g:BASH_TemplateOverwrittenMsg : message if a template is overwritten
            g:BASH_Ctrl_j                 : hotkey Ctrl-j  'on'/'off' (see|bashsupport-ad-mappings|)
  
- 2. group: g:BASH_CodeSnippets           : The name of the code snippet directory {{{3
+ 2. group: g:BASH_CodeSnippets           : The name of the code snippet directory
                                            (see |bashsupport-stat-snippets|).
            g:BASH_LoadMenus              : Load menus and mappings ("yes", "no") at start up.
            g:BASH_Dictionary_File        : Path and file name of the bash word list used for
@@ -895,7 +910,7 @@ g:BASH_AlsoBash                ''
            g:BASH_GuiSnippetBrowser      : code snippet browser: 'gui', 'commandline'
            g:BASH_GuiTemplateBrowser     : code template browser: 'gui', 'explorer', 'commandline' 
  
- 3. group: g:BASH_OutputGvim             : Target for a script output {{{3
+ 3. group: g:BASH_OutputGvim             : Target for a script output
                                            (see |bashsupport-output|).
            g:BASH_XtermDefaults          : The xterm defaults (see |bashsupport-xterm|).
            g:BASH_Debugger               : the debugger called by F9 (term, ddd).
@@ -917,23 +932,14 @@ This assignment is necessary to avoid a wrong syntax highlighting for $(..) and
 $((..)).
 
 ------------------------------------------------------------------------------
-4.3  THE ROOT MENU                                   *bashsupport-custom-root* {{{2
+4.3  THE ROOT MENU                                   *bashsupport-custom-root*
 ------------------------------------------------------------------------------
 
 The variable g:BASH_Root, if set (in '.vimrc' or in '.gvimrc'), gives the name
 of the single gVim root menu entry in which the Bash submenus will be put.
 The default is
                   'B&ash.'
-Note the terminating dot. A single root menu entry is appropriate if the
-screen is limited or several plugins are in use.
-
-If g:BASH_Root is set to "", this single root menu entry will not appear.  Put
-the following line in '.vimrc'
-
-  let g:BASH_Root = ""
-
-Now all submenus are put into the gVim root menu. Nice for a
-Bash-only-programmer and Bash courses.
+Note the terminating dot. 
 
 If you want to set the plugin root menu into another menu, e.g. 'Plugin',
 this is done by the following line in '.vimrc'
@@ -941,7 +947,7 @@ this is done by the following line in '.vimrc'
   let g:BASH_Root = "&Plugin.B&ash."
 
 ------------------------------------------------------------------------------
-4.4  System-wide installation                        *bashsupport-system-wide* {{{2
+4.4  System-wide installation                        *bashsupport-system-wide*
 ------------------------------------------------------------------------------
 
 A system-wide installation (one installation for all users) is done as
@@ -952,7 +958,7 @@ As *** SUPERUSER *** :
 (1) Find the Vim installation directory.
 The Vim ex command ':echo $VIM' gives '/usr/local/share/vim' or something like
 that. Beyond this directory you will find the Vim installation,  e.g. in
-'/usr/local/share/vim/vim72' if Vim version 7.2 has been installed.
+'/usr/local/share/vim/vim73' if Vim version 7.3 has been installed.
 
 (2) Create a new subdirectory 'vimfiles', e.g. '/usr/local/share/vim/vimfiles'.
 
@@ -962,6 +968,14 @@ Copy the archive 'bash-support.zip' to this new directory and unpack it:
 
 (4) Generate the help tags:
   :helptags $VIM/vimfiles/doc
+
+SPECIAL CASES. Some Linux distributions use non-standard names for Vim
+directories. SUSE has a directory '/usr/share/vim/site' to put plugins in.
+These directories will not be found automatically.  After installing the
+plugin below '/usr/share/vim/site' the use of the templates will be enabled by
+the following line in '~/.vimrc':
+
+  let g:BASH_GlobalTemplateFile = '/usr/share/vim/site/bash-support/templates/Templates'
 
 
 As *** USER *** :
@@ -974,8 +988,29 @@ You may want to copy the snippets coming with this plugin (in
 $VIM/vimfiles/bash-support/codesnippets) into the new directory or to set a
 link to the global directory.
 
+Create your private template directory:
+
+  mkdir --parents  ~/.vim/bash-support/templates
+
+Create a private template file 'Templates' (compulsory) in this directory to
+overwrite some macros, e.g.
+
+ *|AUTHOR|*    = your name
+ *|AUTHORREF|* = ...
+ *|EMAIL|*     = ...
+ *|COMPANY|*   = ...
+ *|COPYRIGHT|* = ...
+
+You can also have local templates which overwrite the global ones. To suppress
+the messages in this case set a global variable in '~/.vimrc' (Windows:
+'~\_vimrc') :
+
+  let g:BASH_TemplateOverwrittenMsg= 'no'
+
+The default is 'yes'.
+
 ------------------------------------------------------------------------------
-4.5  Non-standard installation                      *bashsupport-non-standard* {{{2
+4.5  Non-standard installation                      *bashsupport-non-standard*
 ------------------------------------------------------------------------------
 
 The place to install this plugin package is the directory "$HOME/.vim".  For
@@ -983,20 +1018,20 @@ convenience the directory tree "$HOME/.vim/bash-support/..." can be moved to
 another place. In this case the new base directory has to be specified in
 "$HOME/.vimrc", e.g.
 
- let g:BASH_Support_Root_Dir  = "/home/lastname/xyz"
+ let g:BASH_Support_Root_Dir  = "/home/username/xyz"
 
 Please note that there is no trailing slash.
 
 ==============================================================================
-5.  TEMPLATE FILES AND TAGS                           *bashsupport-tempplates* {{{1
+5.  TEMPLATE FILES AND TAGS                           *bashsupport-tempplates*
 ==============================================================================
 
 ------------------------------------------------------------------------------
-5.1  TEMPLATE FILES                              *bashsupport-templates-files* {{{2
+5.1  TEMPLATE FILES                              *bashsupport-templates-files*
 ------------------------------------------------------------------------------
 
-Nearly all menu entries insert code snippets or comments. A part of this stuff
-is taken from template files and can be changed by the user to meet his
+Nearly all menu entries insert code snippets or comments. All of these are
+contained within template files and can be changed by the user to meet their
 requirements.
 
 The master template file is '$HOME/.vim/bash-support/templates/Templates' for
@@ -1046,7 +1081,7 @@ A macroname starts with a letter (uppercase or lowercase) followed by zero or
 more letters, digits or underscores.
 
 ------------------------------------------------------------------------------
-5.2  MACROS                                     *bashsupport-templates-macros* {{{2
+5.2  MACROS                                     *bashsupport-templates-macros*
 ------------------------------------------------------------------------------
 
 The following macro names are predefined. The first group is used to
@@ -1095,7 +1130,7 @@ When the first template definition is found (see below) macro definitions are
 no longer recognized.
 
 ------------------------------------------------------------------------------
-5.2.1   USER DEFINED FORMATS FOR DATE AND TIME    *bashsupport-templates-date* {{{3
+5.2.1   USER DEFINED FORMATS FOR DATE AND TIME    *bashsupport-templates-date*
 ------------------------------------------------------------------------------
 The format for *|DATE|* ,*|TIME|* , and*|YEAR|* can be set by the user. The
 defaults are
@@ -1113,10 +1148,10 @@ User defined formats can be set using the following global variables in
     let g:BASH_FormatYear            = 'year %Y'
 
 ------------------------------------------------------------------------------
-5.3  TEMPLATES                                   *bashsupport-templates-names* {{{2
+5.3  TEMPLATES                                   *bashsupport-templates-names*
 ------------------------------------------------------------------------------
 
-5.3.1  Template names {{{3
+5.3.1  Template names
 
 The template behind a menu entry is identified by a given name. The first part
 of the name identifies the menu, the second part identifies the item. The
@@ -1173,7 +1208,7 @@ modes are also hard coded (see|bashsupport-templates-definition|for the use of
  paramsub.all-upper-to-lower                   normal, insert
 
 
-5.3.2  Template definition                  *bashsupport-templates-definition* {{{3
+5.3.2  Template definition                  *bashsupport-templates-definition*
 
 A template definition starts with a template head line with the following
 syntax:
@@ -1224,7 +1259,7 @@ this template yields
 The templates with a visual mode are shown in the table under
 |bashsupport-templates-names|.
 
-5.3.3  Template expansion                    *bashsupport-templates-expansion* {{{3
+5.3.3  Template expansion                    *bashsupport-templates-expansion*
 
 There are additional ways to control the expansion of a template.
 
@@ -1264,7 +1299,7 @@ The keyword comment template is an example for the use of ':u' :
 
 The user specified keyword will be used in uppercase.
 
-5.3.4  The macros <+text+> etc.                   *bashsupport-templates-jump* {{{3
+5.3.4  The macros <+text+> etc.                   *bashsupport-templates-jump*
 
 There are four macro types which can be used as jump targets in templates:
 
@@ -1280,7 +1315,7 @@ can be composed from letters (uppercase and lowercase), digits, underscores
 and blanks. After the insertion of an template these jump targets will be
 highlighted. 
 
-5.3.5  Command Ctrl-j                                     *bashsupport-Ctrl-j* {{{3
+5.3.5  Command Ctrl-j                                     *bashsupport-Ctrl-j*
 
 Use the command Ctrl-j to jump to the next target. The target will be removed
 and the mode will switched to insertion. Ctrl-j works in normal and in insert
@@ -1314,7 +1349,7 @@ template files. All jump targets will be removed before a template will be
 inserted. 
 
 ==============================================================================
-5.4  SWITCHING BETWEEN TEMPLATE SETS              *bashsupport-templates-sets* {{{2
+5.4  SWITCHING BETWEEN TEMPLATE SETS              *bashsupport-templates-sets*
 ==============================================================================
 
 This plugin comes with a set of templates. These templates are suggestions.
@@ -1372,7 +1407,7 @@ with the Ex command ':BashStyle '. Use tab expansion to choose one of the
 existing styles.
 
 ==============================================================================
-5.5  ADDITIONAL FILENAMES WITH FILETYPE 'sh'           *bashsupport-also-bash* {{{2
+5.5  ADDITIONAL FILENAMES WITH FILETYPE 'sh'           *bashsupport-also-bash*
 ==============================================================================
 
 The standard extension for shell script files used by this plugin is ".sh".
@@ -1398,7 +1433,7 @@ pattern and supersedes the macro *|STYLE|* .
 
 
 ==============================================================================
-6.  BASH DICTIONARY                                   *bashsupport-dictionary* {{{1
+6.  BASH DICTIONARY                                   *bashsupport-dictionary*
 ==============================================================================
 
 The file 'bash.list' contains words used as dictionary for automatic word
@@ -1418,7 +1453,7 @@ second line (continuation line).
 You can use Vim's dictionary feature CTRL-X, CTRL-K (and CTRL-P, CTRL-N).
 
 ==============================================================================
-7.  ADDITIONAL MAPPINGS                              *bashsupport-ad-mappings* {{{1
+7.  ADDITIONAL MAPPINGS                              *bashsupport-ad-mappings*
 ==============================================================================
 
 Ctrl-j
@@ -1450,35 +1485,78 @@ The command '' masks the normal mode command '' (jump to the position before
 the latest jump).
 
 ==============================================================================
-8.  WINDOWS PARTICULARITIES                              *bashsupport-windows* {{{1
+8.  WINDOWS PARTICULARITIES                              *bashsupport-windows*
 ==============================================================================
 
-The plugin should go into the directory structure below the local
-installation directory $HOME/.vim/ for LINUX/UNIX and $VIM/vimfiles/ for
-Windows. The values of the two variables can be found from inside Vim:
+For a user installation the plugin should go into the directory structure below 
+  $HOME/vimfiles/
+for a system installation below
+  $VIM/vimfiles/
+
+The values of the two variables can be found from inside Vim:
    :echo $VIM
 or
    :echo $HOME
 
-Configuration files:
+The configuration files for a user are
 
-  LINUX/UNIX :   $HOME/.vimrc  and  $HOME/.gvimrc
-  Windows    :   $VIM/_vimrc   and  $VIM/_gvimrc
+  $HOME/_vimrc   and  $HOME/_gvimrc
+
+for the system
+
+  $VIM/_vimrc   and  $VIM/_gvimrc
 
 A Bash shell is not a part of a Windows system and has to be installed in
-addition. This plugin assumes that the shell port win-bash.exe
-(http://win-bash.sourceforge.net/) and the command line utilities you want to
-use can be reached via your path variable.
-This shell can be changed to xyz-shell.exe by setting the following line into
-the file _vimrc:
+addition. This plugin assumes that the shell port bash.exe
+(http://www.cygwin.com) is present and the that command line utilities you
+want to use can be reached via your path variable.  This shell can be changed
+to xyz-shell.exe by setting the following line into the file _vimrc:
 
   let g:BASH_BASH    = 'xyz-shell.exe'
 
 The run-menu and the corresponding hotkeys are restricted. Please see 
 the document 'bash-hot-keys.pdf' for this restrictions.
 
+The file format is switches to 'unix' on entering a buffer of type 'sh'.
+The filetype can be changed by setting a global variable in file _vimrc:
+
+  let g:BASH_FileFormat = 'something_else'
+
+CYGWIN
+------
+Executing scripts with DOS style pathnames causes the error "MS-DOS style path
+detected". To turn these messages off add the CYGWIN environment variable
+CYGWIN with the value "nodosfilewarning".
+
 ==============================================================================
-9.  Release Notes                                  *bashsupport-release-notes* {{{1
+9.  TROUBLESHOOTING                             *bashsupport-troubleshooting*
+==============================================================================
+
+* I do not see any new main menu item.
+  - Was the archive extracted into the right directory?
+
+* How can I see what was loaded?
+  - Use ':scriptnames' from the Vim command line.
+
+* No main menu item.
+  - Loading of plugin files must be enabled. If not use
+      :filetype plugin on
+    This is the minimal content of the file '$HOME/.vimrc'. Create one if there
+    is none, or better use customization.vimrc.
+
+* Most key mappings do not work.
+  - They are defined in a filetype plugin in '$HOME/.vim/ftplugin/'. Use
+    ':filetype' to check if filetype plugins are enabled. If not, add the line
+      filetype plugin on
+    to the file '~/.vimrc'.
+
+* Some hotkeys do not work.
+  - The hotkeys might be in use by your graphical desktop environment.  Under
+    KDE Ctrl-F9 is the hotkey which let you switch to the 9. desktop.  The key
+    settings can usually be redefined.
+
+==============================================================================
+10.  Release Notes                                  *bashsupport-release-notes*
 ==============================================================================
 
 See file 'README.bashsupport'.

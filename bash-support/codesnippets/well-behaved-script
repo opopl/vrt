@@ -1,4 +1,4 @@
-                                  # treat unset variables as errors
+set -o nounset                                  # treat unset variables as errors
 
 #===============================================================================
 #   GLOBAL DECLARATIONS
