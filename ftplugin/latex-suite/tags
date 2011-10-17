@@ -3,7 +3,12 @@
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
-!_TAG_PROGRAM_VERSION	5.7	//
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+00_cover  cover	templates/latex-report-template/report.tex	/^\\include{00_cover\/cover}$/;"	i
+01_chapters  01  chapter_01	templates/latex-report-template/report.tex	/^\\include{01_chapters\/01\/chapter_01}$/;"	i
+01_chapters  02  chapter_02	templates/latex-report-template/report.tex	/^\\include{01_chapters\/02\/chapter_02}$/;"	i
+01_chapters  03  chapter_03	templates/latex-report-template/report.tex	/^\\include{01_chapters\/03\/chapter_03}$/;"	i
+02_appendices  01  appendix_01	templates/latex-report-template/report.tex	/^\\include{02_appendices\/01\/appendix_01}$/;"	i
 <C-o><plug>	elementmacros.vim	/^imap <silent> <script> <C-o><plug> <Nop>$/;"	m
 <C-o><plug>	envmacros.vim	/^imap <silent> <script> <C-o><plug> <Nop>$/;"	m
 <C-o><plug>	main.vim	/^imap <silent> <script> <C-o><plug> <Nop>$/;"	m
@@ -35,19 +40,63 @@
 <plug>	packages.vim	/^imap <silent> <plug> <Nop>$/;"	m
 <plug>	packages.vim	/^nmap <silent> <plug> i$/;"	m
 <plug>cleanHistory	main.vim	/^nmap <silent> <script> <plug>cleanHistory :call Tex_CleanSearchHistory()<CR>$/;"	m
+Acknowledgements	templates/latexreport/text/frontmatter.tex	/^\\section*{Acknowledgements}$/;"	s
+Alphabete	templates/beamer-examples/a-lecture/beamerexample-lecture-body.tex	/^\\subsection{Alphabete}$/;"	u
+Appendix	templates/beamer-ctalk.tex	/^\\section*{Appendix}$/;"	s
+Appendix	templates/beamer-examples/a-conference-talk/beamerexample-conference-talk.tex	/^\\section*{Appendix}$/;"	s
+Arc Length	templates/latexreport/text/app_1.tex	/^\\section{Arc Length}$/;"	s
+B-snakes	templates/latexreport/text/chap_1.tex	/^\\subsubsection{B-snakes}$/;"	b
+Bad News  Hardness Results	templates/beamer-ctalk.tex	/^\\section{Bad News: Hardness Results}$/;"	s
+Bad News  Hardness Results	templates/beamer-examples/a-conference-talk/beamerexample-conference-talk.tex	/^\\section{Bad News: Hardness Results}$/;"	s
+Basic Ideas for Proofs  Implementation	templates/beamer-ornate-20-mins.tex	/^\\subsection{Basic Ideas for Proofs\/Implementation}$/;"	u
 BibFile	bibtools.py	/^class BibFile:$/;"	c
 BibT	bibtex.vim	/^function BibT(type, options, prompt)$/;"	f
 Bibliography	bibtools.py	/^class Bibliography(dict):$/;"	c
 Change	envmacros.vim	/^	function! s:Change(env, label, delete, putInNonumber)$/;"	f
 ChangeCommand	envmacros.vim	/^	function! s:ChangeCommand(newcom)$/;"	f
 ChooseMacro	custommacros.vim	/^function! s:ChooseMacro(ask)$/;"	f
+Class Aptent	templates/latex-report-template/01_chapters/02/chapter_02.tex	/^\\section{Class Aptent}\\label{NullaPorta_ClassAptent}$/;"	s
+Class aptent	templates/latex-report-template/02_appendices/01/appendix_01.tex	/^\\chapter{Class aptent}\\label{app: ClassAptent}$/;"	c
+Colophon	templates/latexreport/text/colophon.tex	/^\\chapter*{Colophon}$/;"	c
 Compute	templates.vim	/^function! <SID>Compute(what)$/;"	f
+Conclusion	templates/latex-report-template/01_chapters/03/chapter_03.tex	/^\\chapter{Conclusion}\\label{Conclusion}$/;"	c
+Conclusions	templates/ldos.tex	/^\\section{Conclusions}$/;"	s
+Constraints	templates/latexreport/text/chap_1.tex	/^\\subsubsection{Constraints}$/;"	b
+Curvature	templates/latexreport/text/app_1.tex	/^\\section{Curvature}$/;"	s
 DeleteMacro	custommacros.vim	/^function! <SID>DeleteMacro(...)$/;"	f
+Differential Geometry	templates/latexreport/text/app_1.tex	/^\\chapter{Differential Geometry}$/;"	c
+DonecDictum	templates/latex-report-template/01_chapters/02/chapter_02.tex	/^\\subsection{DonecDictum}\\label{NullaPorta_Maecenus_DonecDictum}$/;"	u
+Duis Eleifent	templates/latex-report-template/01_chapters/02/chapter_02.tex	/^\\subsection{Duis Eleifent}\\label{NullaPorta_ClassAptent_DuisEleifent}$/;"	u
+Duis Lectus	templates/latex-report-template/01_chapters/02/chapter_02.tex	/^\\section{Duis Lectus}\\label{NullaPorta_DuisLectus}$/;"	s
+Dynamic Programming	templates/latexreport/text/chap_1.tex	/^\\subsubsection{Dynamic Programming}$/;"	b
 EditMacro	custommacros.vim	/^function! <SID>EditMacro(...)$/;"	f
+Energy Function	templates/latexreport/text/chap_1.tex	/^\\subsection{Energy Function}$/;"	u
+Energy Minimization Methods	templates/latexreport/text/chap_1.tex	/^\\subsection{Energy Minimization Methods}$/;"	u
+Evaluation of Methods	templates/latexreport/text/chap_1.tex	/^\\section{Evaluation of Methods}$/;"	s
 Exec	templates.vim	/^function! <SID>Exec(what)$/;"	f
+External Energy	templates/latexreport/text/chap_1.tex	/^\\subsubsection{External Energy}$/;"	b
 FilterPackageMenuLHS	packages.vim	/^function! <SID>FilterPackageMenuLHS(command)$/;"	f
+Finite Difference Method	templates/latexreport/text/chap_1.tex	/^\\subsubsection{Finite Difference Method}$/;"	b
+Finite Element Method	templates/latexreport/text/chap_1.tex	/^\\subsubsection{Finite Element Method}$/;"	b
+Frenet Frame and Natural Equations	templates/latexreport/text/app_1.tex	/^\\section{Frenet Frame and Natural Equations}$/;"	s
+Geometric Algorithms	templates/latexreport/text/chap_1.tex	/^\\subsubsection{Geometric Algorithms}$/;"	b
+Good News  Tractability Results	templates/beamer-ctalk.tex	/^\\section{Good News: Tractability Results}$/;"	s
+Good News  Tractability Results	templates/beamer-examples/a-conference-talk/beamerexample-conference-talk.tex	/^\\section{Good News: Tractability Results}$/;"	s
+Greedy Algorithm	templates/latexreport/text/chap_1.tex	/^\\subsubsection{Greedy Algorithm}$/;"	b
 GroupPackageMenuItems	packages.vim	/^function! <SID>GroupPackageMenuItems(menuList, menuName, $/;"	f
+Grundlage der Syntax  Text	templates/beamer-examples/a-lecture/beamerexample-lecture-body.tex	/^\\section{Grundlage der Syntax: Text}$/;"	s
+Hardness of PP-Partitioning of Genotype Matrices	templates/beamer-ctalk.tex	/^\\subsection{Hardness of PP-Partitioning of Genotype Matrices}$/;"	u
+Hardness of PP-Partitioning of Genotype Matrices	templates/beamer-examples/a-conference-talk/beamerexample-conference-talk.tex	/^\\subsection{Hardness of PP-Partitioning of Genotype Matrices}$/;"	u
+Hardness of PP-Partitioning of Haplotype Matrices	templates/beamer-ctalk.tex	/^\\subsection{Hardness of PP-Partitioning of Haplotype Matrices}$/;"	u
+Hardness of PP-Partitioning of Haplotype Matrices	templates/beamer-examples/a-conference-talk/beamerexample-conference-talk.tex	/^\\subsection{Hardness of PP-Partitioning of Haplotype Matrices}$/;"	u
 Input	bibtex.vim	/^function! s:Input(prompt, ask) " {{{$/;"	f
+Internal Energy	templates/latexreport/text/chap_1.tex	/^\\subsubsection{Internal Energy}$/;"	b
+Introduction	templates/IEEEtran.tex	/^\\section{Introduction}$/;"	s
+Introduction	templates/beamer-ctalk.tex	/^\\section{Introduction}$/;"	s
+Introduction	templates/beamer-examples/a-conference-talk/beamerexample-conference-talk.tex	/^\\section{Introduction}$/;"	s
+Introduction	templates/beamer-ornate-15-45-min.tex	/^\\section{Introduction}$/;"	s
+Introduction	templates/latex-report-template/01_chapters/01/chapter_01.tex	/^\\chapter{Introduction}\\label{Introduction}$/;"	c
+Justification	templates/latex-report-template/01_chapters/01/chapter_01.tex	/^\\section{Justification}\\label{Introduction_Justification}$/;"	s
 LatexSuite	brackets.vim	/^augroup LatexSuite$/;"	a
 LatexSuite	compiler.vim	/^augroup LatexSuite$/;"	a
 LatexSuite	envmacros.vim	/^augroup LatexSuite$/;"	a
@@ -56,24 +105,56 @@ LatexSuite	main.vim	/^augroup LatexSuite$/;"	a
 LatexSuite	packages.vim	/^augroup LatexSuite$/;"	a
 LatexSuite	texproject.vim	/^augroup LatexSuite$/;"	a
 LatexSuite	texviewer.vim	/^augroup LatexSuite$/;"	a
+Lorem Ipsum	templates/latex-report-template/01_chapters/02/chapter_02.tex	/^\\subsection{Lorem Ipsum}\\label{NullaPorta_Maecenus_LoremIpsum}$/;"	u
+Maecenas	templates/latex-report-template/01_chapters/02/chapter_02.tex	/^\\section{Maecenas}\\label{NullaPorta_Maecenas}$/;"	s
+Main Results	templates/beamer-ornate-20-mins.tex	/^\\subsection{Main Results}$/;"	u
 MakeTexFolds	folding.vim	/^function! MakeTexFolds(force)$/;"	f
+Motivation	templates/beamer-ornate-20-mins.tex	/^\\section{Motivation}$/;"	s
 NewMacro	custommacros.vim	/^function! <SID>NewMacro(...)$/;"	f
+Nulla Porta	templates/latex-report-template/01_chapters/02/chapter_02.tex	/^\\chapter{Nulla Porta}\\label{NullaPorta}$/;"	c
+Nunc Rhoncus	templates/latex-report-template/01_chapters/02/chapter_02.tex	/^\\subsubsection{Nunc Rhoncus}$/;"	b
+Our Results  Contribution	templates/beamer-ornate-20-mins.tex	/^\\section{Our Results\/Contribution}$/;"	s
+Perfect Path Phylogenies	templates/beamer-ctalk.tex	/^\\subsection{Perfect Path Phylogenies}$/;"	u
+Perfect Path Phylogenies	templates/beamer-examples/a-conference-talk/beamerexample-conference-talk.tex	/^\\subsection{Perfect Path Phylogenies}$/;"	u
+Preface	templates/latexreport/text/frontmatter.tex	/^\\chapter*{Preface}$/;"	c
+Previous Work	templates/beamer-ornate-20-mins.tex	/^\\subsection{Previous Work}$/;"	u
+Previous Work	templates/latexreport/text/chap_1.tex	/^\\section{Previous Work}$/;"	s
 ProcessTemplate	templates.vim	/^function! <SID>ProcessTemplate()$/;"	f
+Proin Laoreet	templates/latex-report-template/01_chapters/02/chapter_02.tex	/^\\subsubsection{Proin Laoreet}$/;"	b
 PromptForCommand	envmacros.vim	/^function! PromptForCommand(ask)$/;"	f
 PromptForEnvironment	envmacros.vim	/^function! PromptForEnvironment(ask)$/;"	f
 ProtectLetters	main.vim	/^	function! s:ProtectLetters(first, last)$/;"	f
+Quisque Rhoncus	templates/latex-report-template/01_chapters/02/chapter_02.tex	/^\\subsubsection{Quisque Rhoncus}$/;"	b
 ReadMacro	custommacros.vim	/^function! <SID>ReadMacro(...)$/;"	f
 ReadTemplate	templates.vim	/^function! <SID>ReadTemplate(...)$/;"	f
 RedrawMacro	custommacros.vim	/^function! RedrawMacro()$/;"	f
+Report Structure	templates/latexreport/text/frontmatter.tex	/^\\section*{Report Structure}$/;"	s
+Second Subsection	templates/beamer-ornate-15-45-min.tex	/^\\subsection{Second Subsection}$/;"	u
+Semantik protect logischer Sprachen	templates/beamer-examples/a-lecture/beamerexample-lecture-body.tex	/^\\subsection[Semantik\\protect\\\\ logischer Sprachen]{Semantik logischer Sprachen}$/;"	u
+Semantik protect nat rlicher Sprachen	templates/beamer-examples/a-lecture/beamerexample-lecture-body.tex	/^\\subsection[Semantik\\protect\\\\ natürlicher Sprachen]{Semantik natürlicher Sprachen}$/;"	u
+Semantik von Programmiersprachen	templates/beamer-examples/a-lecture/beamerexample-lecture-body.tex	/^\\subsection{Semantik von Programmiersprachen}$/;"	u
 SetCustomMacrosMenu	custommacros.vim	/^function! <SID>SetCustomMacrosMenu()$/;"	f
 SetEnvMacrosOptions	envmacros.vim	/^function! <SID>SetEnvMacrosOptions()$/;"	f
 SetTeXOptions	main.vim	/^function! <SID>SetTeXOptions()$/;"	f
 SetTeXTarget	compiler.vim	/^function! SetTeXTarget(...)$/;"	f
 SetTemplateMenu	templates.vim	/^function! <SID>SetTemplateMenu()$/;"	f
 SetUpHotKeys	envmacros.vim	/^	function! <SID>SetUpHotKeys()$/;"	f
+Short First Subsection Name	templates/beamer-ornate-15-45-min.tex	/^\\subsection[Short First Subsection Name]{First Subsection Name}$/;"	u
 SmartBS	main.vim	/^	function! s:SmartBS(pat)$/;"	f
 SmartBS_pat	main.vim	/^	fun! s:SmartBS_pat()$/;"	f
 SmartDots	main.vim	/^	function! <SID>SmartDots()$/;"	f
+Snake Fundamentals	templates/latexreport/text/chap_1.tex	/^\\chapter{Snake Fundamentals}$/;"	c
+Snake Representation	templates/latexreport/text/chap_1.tex	/^\\subsection{Snake Representation}$/;"	u
+Snakes  Active Contours and Deformable Models	templates/latexreport/text/chap_1.tex	/^\\section{Snakes, Active Contours and Deformable Models}$/;"	s
+Space Curve	templates/latexreport/text/app_1.tex	/^\\section{Space Curve}$/;"	s
+Special Models	templates/latexreport/text/chap_1.tex	/^\\subsubsection{Special Models}$/;"	b
+Summary	templates/beamer-ctalk.tex	/^\\section*{Summary}$/;"	s
+Summary	templates/beamer-examples/a-conference-talk/beamerexample-conference-talk.tex	/^\\section*{Summary}$/;"	s
+Summary	templates/beamer-ornate-15-45-min.tex	/^\\section*{Summary}$/;"	s
+Summary	templates/beamer-ornate-20-mins.tex	/^\\section*{Summary}$/;"	s
+Syntax protect logischer Sprachen	templates/beamer-examples/a-lecture/beamerexample-lecture-body.tex	/^\\subsection[Syntax\\protect\\\\ logischer Sprachen]{Syntax logischer Sprachen}$/;"	u
+Syntax protect nat rlicher Sprachen	templates/beamer-examples/a-lecture/beamerexample-lecture-body.tex	/^\\subsection[Syntax \\protect\\\\ natürlicher Sprachen]{Syntax natürlicher Sprachen}$/;"	u
+Syntax von Programmiersprachen	templates/beamer-examples/a-lecture/beamerexample-lecture-body.tex	/^\\subsection{Syntax von Programmiersprachen}$/;"	u
 TCTarget	compiler.vim	/^com! -nargs=1 TCTarget :call Tex_SetTeXCompilerTarget('Compile', <f-args>)$/;"	c
 TClearCiteHist	texviewer.vim	/^com! -nargs=0 TClearCiteHist unlet! s:citeSearchHistory$/;"	c
 TCompileMainFile	compiler.vim	/^command! -nargs=0 TCompileMainFile let b:fragmentFile = 0$/;"	c
@@ -248,8 +329,21 @@ Tex_shortcuts	wizardfuncs.vim	/^function! Tex_shortcuts(...)$/;"	f
 Tex_table	envmacros.vim	/^function! Tex_table(env)$/;"	f
 Tex_tabular	envmacros.vim	/^function! Tex_tabular(env)$/;"	f
 Tex_thebibliography	envmacros.vim	/^function! Tex_thebibliography(env)$/;"	f
+The Basic Problem That We Studied	templates/beamer-ornate-20-mins.tex	/^\\subsection{The Basic Problem That We Studied}$/;"	u
+The Integrated Approach	templates/beamer-ctalk.tex	/^\\subsection{The Integrated Approach}$/;"	u
+The Integrated Approach	templates/beamer-examples/a-conference-talk/beamerexample-conference-talk.tex	/^\\subsection{The Integrated Approach}$/;"	u
+The Model and the Problem	templates/beamer-ctalk.tex	/^\\subsection{The Model and the Problem}$/;"	u
+The Model and the Problem	templates/beamer-examples/a-conference-talk/beamerexample-conference-talk.tex	/^\\subsection{The Model and the Problem}$/;"	u
 Tlist_Ctags_Cmd	main.vim	/^		let Tlist_Ctags_Cmd = s:tex_ctags ." --langdef=tex --langmap=tex:.tex.ltx.latex"$/;"	v
+Torsion	templates/latexreport/text/app_1.tex	/^\\section{Torsion}$/;"	s
+Tractability of PPP-Partitioning of Genotype Matrices	templates/beamer-ctalk.tex	/^\\subsection{Tractability of PPP-Partitioning of Genotype Matrices}$/;"	u
+Tractability of PPP-Partitioning of Genotype Matrices	templates/beamer-examples/a-conference-talk/beamerexample-conference-talk.tex	/^\\subsection{Tractability of PPP-Partitioning of Genotype Matrices}$/;"	u
 Tshortcuts	wizardfuncs.vim	/^command! -nargs=? Tshortcuts call Tex_shortcuts(<f-args>)<CR>$/;"	c
+Velocity and Acceleration	templates/latexreport/text/app_1.tex	/^\\section{Velocity and Acceleration}$/;"	s
+Was ist Semantik 	templates/beamer-examples/a-lecture/beamerexample-lecture-body.tex	/^\\section{Was ist Semantik?}$/;"	s
+Was ist Syntax 	templates/beamer-examples/a-lecture/beamerexample-lecture-body.tex	/^\\section{Was ist Syntax?}$/;"	s
+Worte	templates/beamer-examples/a-lecture/beamerexample-lecture-body.tex	/^\\subsection{Worte}$/;"	u
+Ziele und Inhalt	templates/beamer-examples/a-lecture/beamerexample-lecture-body.tex	/^\\section*{Ziele und Inhalt}$/;"	s
 __getitem__	bibtools.py	/^    def __getitem__(self, key):$/;"	m	class:Bibliography	file:
 __init__	bibtools.py	/^    def __init__(self, filelist=''):$/;"	m	class:BibFile
 __init__	bibtools.py	/^    def __init__(self, txt, macros={}):$/;"	m	class:Bibliography
@@ -259,13 +353,20 @@ addFileNameAndNumber	outline.py	/^def addFileNameAndNumber(lines):$/;"	f
 addfile	bibtools.py	/^    def addfile(self, file):$/;"	m	class:BibFile
 addfilter	bibtools.py	/^    def addfilter(self, filterspec):$/;"	m	class:BibFile
 addsortfield	bibtools.py	/^    def addsortfield(self, field):$/;"	m	class:BibFile
+app_1	templates/latexreport/text/master.tex	/^\\include{app_1}        % example appendix$/;"	i
 b:DoubleDollars	envmacros.vim	/^	let b:DoubleDollars = 0$/;"	v
 b:did_brackets	brackets.vim	/^let b:did_brackets = 1$/;"	v
 b:done_smartspace	smartspace.vim	/^let b:done_smartspace = 1$/;"	v
 b:tw	smartspace.vim	/^let b:tw = &l:tw$/;"	v
+bf	bibtools.py	/^    bf = BibFile(sys.argv[1])$/;"	v	class:BibFile
+bibliography	templates/latexreport/text/master.tex	/^\\include{bibliography} % bibliography$/;"	i
 catFile	pytools.py	/^def catFile(filename):$/;"	f
+chap_1	templates/latexreport/text/master.tex	/^\\include{chap_1}       % example chapter$/;"	i
 cmpfun	bibtools.py	/^        def cmpfun(b1, b2):$/;"	f	function:BibFile.sort
+colophon	templates/latexreport/text/master.tex	/^\\include{colophon}     % colophon of report$/;"	i
 deleteFile	pytools.py	/^def deleteFile(filepattern):$/;"	f
+examples	templates/beamer-examples/Makefile	/^examples = \\$/;"	m
+frontmatter	templates/latexreport/text/master.tex	/^\\include{frontmatter}  % abstract, preface, tableofcontents, list of$/;"	i
 g:Tex_Debug	main.vim	/^	let g:Tex_Debug = 0$/;"	v
 g:Tex_ElementsMenuLocation	texmenuconf.vim	/^	let g:Tex_ElementsMenuLocation = (g:Tex_NextMenuLocation).'.20 '.g:Tex_MenuPrefix$/;"	v
 g:Tex_ElementsMenuLocation	texmenuconf.vim	/^	let g:Tex_ElementsMenuLocation = (g:Tex_NextMenuLocation).'.20 '.g:Tex_MenuPrefix.'E&lements.'$/;"	v
@@ -295,8 +396,11 @@ g:tlist_tex_settings	main.vim	/^		let g:tlist_tex_settings = 'tex;s:section;c:ch
 getFileContents	outline.py	/^def getFileContents(fname):$/;"	f
 getSectionLabels	outline.py	/^def getSectionLabels(lineinfo, $/;"	f
 getSectionLabels_Root	outline.py	/^def getSectionLabels_Root(lineinfo, section_prefix, label_prefix):$/;"	f
+insertframetitle   small insertframesubtitle	templates/beamer-examples/a-lecture/beamerexample-lecture-style.tex	/^\\setbeamertemplate{frametitle}{\\paragraph*{\\insertframetitle\\$/;"	P
 isPresentInFile	pytools.py	/^def isPresentInFile(regexp, filename):$/;"	f
 main	outline.py	/^def main(fname, label_prefix):$/;"	f
+prefix	outline.py	/^        prefix = ''$/;"	v
+prefix	outline.py	/^        prefix = sys.argv[2]$/;"	v
 rmfilters	bibtools.py	/^    def rmfilters(self):$/;"	m	class:BibFile
 rmsortfields	bibtools.py	/^    def rmsortfields(self):$/;"	m	class:BibFile
 s:	bibtex.vim	/^let s:{'article'}_optional1="vnpm"$/;"	v

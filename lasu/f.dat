@@ -1,0 +1,12 @@
+main.vim 
+envmacros.vim 
+elementmacros.vim 
+bibtex.vim 
+opmacros.vim 
+custommacros.vim 
+texrc 
+../tex_latexSuite.vim 
+wizardfuncs.vim 
+mathmacros.vim 
+brackets.vim 
+folding.vim  

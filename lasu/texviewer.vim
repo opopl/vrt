@@ -548,17 +548,9 @@ function! Tex_ScanFileForCite(prefix)
 	let presBufNum = bufnr('%')
 
 	let foundCiteFile = 0
-
-	"\op
-			if exists("g:Tex_myBibFiles")
-				let fname=g:Tex_myBibFiles
-				let foundCiteFile = 1
-				return 1
-			endif
 	" First find out if this file has a \bibliography command in it. If so,
 	" assume that this is the only file in the project which defines a
 	" bibliography.
-	"
 	if search('\\\(no\)\?bibliography{', 'w')
 		call Tex_Debug('Tex_ScanFileForCite: found bibliography command in '.bufname('%'), 'view')
 		" convey that we have found a bibliography command. we do not need to
@@ -585,9 +577,7 @@ function! Tex_ScanFileForCite(prefix)
 			" probly be generated automatically from the .bib file with
 			" bibtex).
 			
-
 			let fname = Tex_FindFile(bibname, '.,'.g:Tex_BIBINPUTS, '.bib')
-
 			if fname != ''
 				call Tex_Debug('finding .bib file ['.bufname('%').']', 'view')
 				exec 'split '.Tex_EscapeSpaces(fname)
@@ -889,12 +879,7 @@ if has('python') && Tex_GetVarValue('Tex_UsePython')
 endif
 
 function! Tex_StartCiteCompletion()
-	if !exists("g:Tex_myBibFiles")
-		let bibfiles = Tex_FindBibFiles()
-	else
-		let bibfiles = g:Tex_myBibFiles
-	endif
-
+	let bibfiles = Tex_FindBibFiles()
 	if bibfiles !~ '\S'
 		call Tex_SwitchToInsertMode()
 		echohl WarningMsg
