@@ -111,7 +111,7 @@ function! MakeTexFolds(force)
 		let g:Tex_FoldedCommands = g:Tex_FoldedCommands . s
 	endif
 
-	let s = 'verbatim,comment,algorithm,eq,gather,align,figure,table,thebibliography,'
+	let s = 'verbatim,comment,fminipage,algorithm,eq,gather,align,figure,table,thebibliography,'
 			\. 'keywords,abstract,titlepage'
     if !exists('g:Tex_FoldedEnvironments')
 		let g:Tex_FoldedEnvironments = s
@@ -123,7 +123,7 @@ function! MakeTexFolds(force)
 	
     if !exists('g:Tex_FoldedSections')
 		let g:Tex_FoldedSections = 'part,chapter,section,%%fakesection,'
-								\. 'subsection,ksec,subsubsection,paragraph'
+								\. 'ssec,subsection,ksec,subsubsection,paragraph'
 	endif
 
 	" the order in which these calls are made decides the nestedness. in
